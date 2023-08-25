@@ -1,4 +1,4 @@
-.start-page-container {
+.choose-page-container {
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -7,22 +7,23 @@
   justify-content: space-evenly;
 }
 
-.start-button-container{
+.choose-button-container{
   width: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
+  gap: 10%;
 }
 
-.start-button{
-  padding: 3%;
+.choose-button{
+  padding: 15% 10%;
   background-color: grey;
   color: black;
-  border-radius: 10px;
+  border-radius: 32px;
   font-size: 4em;
 }
 
-.start-button:hover{
+.choose-button:hover{
   color: white;
 }
