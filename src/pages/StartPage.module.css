@@ -24,5 +24,6 @@
 }
 
 .start-button:hover{
+  background-color: rgb(153, 151, 151);
   color: white;
 }

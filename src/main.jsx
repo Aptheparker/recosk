@@ -2,10 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-// Import pages
-import RootLayout from "./RootLayout.jsx";
+// pages
+import RootLayout from "./pages/RootLayout.jsx";
 import StartPage from "./pages/StartPage.jsx";
 import ChoosePage from "./pages/ChoosePage.jsx";
+import Normal from './pages/NormalPage.jsx';
+import RecommendPage from './pages/RecommendPage.jsx';
+
+// styles
 import "./index.css";
 
 const router = createBrowserRouter([
@@ -20,6 +24,14 @@ const router = createBrowserRouter([
       {
         path: "/choose",
         element: <ChoosePage />,
+      },
+      {
+        path: "/normal",
+        element: <Normal />,
+      },
+      {
+        path: "/recommend",
+        element: <RecommendPage />,
       },
     ],
   },
