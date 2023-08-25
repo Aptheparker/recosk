@@ -1,0 +1,23 @@
+.recommend-page-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.recommend-title-container {
+  width: 100%;
+  height: 10%;
+  background-color: grey;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.recommend-title__text{
+  color: black;
+  font-size: 3rem;
+  font-weight: bold;  
+}
