@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 // styles
-import classes from "./RecommendPage.module.css";
+import classes from "./MenuPage.module.css";
 
 // images
 import Coffee from "../assets/coffee.png";
@@ -11,7 +11,7 @@ import Icecream from "../assets/icecream.png";
 import Cake from "../assets/cake.png";
 import Bingsu from "../assets/bingsu.png";
 
-const RecommendPage = () => {
+const MenuPage = () => {
   const [selectedMenu, setSelectedMenu] = useState("");
 
   const handleMenuClick = (menu) => {
@@ -24,9 +24,9 @@ const RecommendPage = () => {
 
   const getMenuClassName = (menu) => {
     if (selectedMenu === menu) {
-      return classes["selected-menu"];
+      return classes["selected-menu"]; // selected
     }
-    return classes["image-container"];
+    return classes["image-container"]; // not selected
   };
 
   return (
@@ -84,4 +84,4 @@ const RecommendPage = () => {
   );
 };
 
-export default RecommendPage;
+export default MenuPage;

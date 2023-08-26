@@ -7,7 +7,7 @@ import RootLayout from "./pages/RootLayout.jsx";
 import StartPage from "./pages/StartPage.jsx";
 import ChoosePage from "./pages/ChoosePage.jsx";
 import Normal from './pages/NormalPage.jsx';
-import RecommendPage from './pages/RecommendPage.jsx';
+import MenuPage from './pages/MenuPage.jsx';
 
 // styles
 import "./index.css";
@@ -31,8 +31,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/recommend",
-        element: <RecommendPage />,
+        element: <MenuPage />,
       },
+      {
+
+      }
     ],
   },
 ]);
