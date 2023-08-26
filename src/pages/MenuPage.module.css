@@ -17,9 +17,9 @@
 }
 
 .recommend-title__text {
+  font-family: 'copperplate';
   color: black;
-  font-size: 3rem;
-  font-weight: bold;
+  font-size: 4rem;
 }
 
 .menus-container {
