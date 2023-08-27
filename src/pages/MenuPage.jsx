@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 // styles
 import classes from "./MenuPage.module.css";
@@ -40,46 +41,48 @@ const MenuPage = () => {
           className={getMenuClassName(Coffee)}
           onClick={() => handleMenuClick(Coffee)}
         >
-          <img src={Coffee} alt="" />
+          <img src={Coffee} alt="coffee" />
           <p className={classes["menu-name"]}>커피</p>
         </div>
         <div
           className={getMenuClassName(Tea)}
           onClick={() => handleMenuClick(Tea)}
         >
-          <img src={Tea} alt="" />
+          <img src={Tea} alt="tea" />
           <div className={classes["menu-name"]}>차</div>
         </div>
         <div
           className={getMenuClassName(Juice)}
           onClick={() => handleMenuClick(Juice)}
         >
-          <img src={Juice} alt="" />
+          <img src={Juice} alt="juice" />
           <div className={classes["menu-name"]}>주스</div>
         </div>
         <div
           className={getMenuClassName(Icecream)}
           onClick={() => handleMenuClick(Icecream)}
         >
-          <img src={Icecream} alt="" />
+          <img src={Icecream} alt="ice-cream" />
           <div className={classes["menu-name"]}>아이스크림</div>
         </div>
         <div
           className={getMenuClassName(Cake)}
           onClick={() => handleMenuClick(Cake)}
         >
-          <img src={Cake} alt="" />
+          <img src={Cake} alt="cake" />
           <div className={classes["menu-name"]}>케이크</div>
         </div>
         <div
           className={getMenuClassName(Bingsu)}
           onClick={() => handleMenuClick(Bingsu)}
         >
-          <img src={Bingsu} alt="" />
+          <img src={Bingsu} alt="bingsu" />
           <div className={classes["menu-name"]}>빙수</div>
         </div>
       </div>
-      <button className={classes["select-btn"]}>선택완료</button>
+      <Link to={"/temperature"}>
+        <button className={classes["select-btn"]}>선택완료</button>
+      </Link>
     </div>
   );
 };
