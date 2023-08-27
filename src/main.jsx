@@ -6,7 +6,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import RootLayout from "./pages/RootLayout.jsx";
 import StartPage from "./pages/StartPage.jsx";
 import ChoosePage from "./pages/ChoosePage.jsx";
-import NormalPage from './pages/NormalPage.jsx';
+import Normal from './pages/NormalPage.jsx';
 import MenuPage from './pages/MenuPage.jsx';
 import TemperaturePage from './pages/TemperaturePage.jsx';
 
@@ -31,8 +31,8 @@ const router = createBrowserRouter([
         element: <NormalPage />
       },
       {
-        path: "/menu",
-        element: <MenuPage />,
+        path: "/category",
+        element: <CategoryPage />,
       },
       {
         path: "/temperature",

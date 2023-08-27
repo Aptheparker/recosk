@@ -59,12 +59,6 @@
   object-fit: contain;
 }
 
-.menu-name {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-top: 10%;
-}
-
 .select-btn {
   font-size: 48px;
   background-color: grey;

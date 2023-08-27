@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
+// components
+import CategoryBox from "../components/RecommendMenu/CategoryBox";
+
 // styles
-import classes from "./MenuPage.module.css";
+import classes from "./CategoryPage.module.css";
 
 // images
 import Coffee from "../assets/coffee.png";
@@ -12,7 +15,7 @@ import Icecream from "../assets/icecream.png";
 import Cake from "../assets/cake.png";
 import Bingsu from "../assets/bingsu.png";
 
-const MenuPage = () => {
+const CategoryPage = () => {
   const [selectedMenu, setSelectedMenu] = useState("");
 
   const handleMenuClick = (menu) => {
@@ -37,48 +40,42 @@ const MenuPage = () => {
       </div>
       <h1>원하시는 종류를 선택해주세요</h1>
       <div className={classes["menus-container"]}>
-        <div
+        <CategoryBox
           className={getMenuClassName(Coffee)}
           onClick={() => handleMenuClick(Coffee)}
-        >
-          <img src={Coffee} alt="coffee" />
-          <p className={classes["menu-name"]}>커피</p>
-        </div>
-        <div
+          imageSrc={Coffee}
+          categoryName={"커피"}
+        />
+        <CategoryBox
           className={getMenuClassName(Tea)}
           onClick={() => handleMenuClick(Tea)}
-        >
-          <img src={Tea} alt="tea" />
-          <div className={classes["menu-name"]}>차</div>
-        </div>
-        <div
+          imageSrc={Tea}
+          categoryName={"차"}
+        />
+        <CategoryBox
           className={getMenuClassName(Juice)}
           onClick={() => handleMenuClick(Juice)}
-        >
-          <img src={Juice} alt="juice" />
-          <div className={classes["menu-name"]}>주스</div>
-        </div>
-        <div
+          imageSrc={Juice}
+          categoryName={"주스"}
+        />
+        <CategoryBox
           className={getMenuClassName(Icecream)}
           onClick={() => handleMenuClick(Icecream)}
-        >
-          <img src={Icecream} alt="ice-cream" />
-          <div className={classes["menu-name"]}>아이스크림</div>
-        </div>
-        <div
+          imageSrc={Icecream}
+          categoryName={"아이스크림"}
+        />
+        <CategoryBox
           className={getMenuClassName(Cake)}
           onClick={() => handleMenuClick(Cake)}
-        >
-          <img src={Cake} alt="cake" />
-          <div className={classes["menu-name"]}>케이크</div>
-        </div>
-        <div
+          imageSrc={Cake}
+          categoryName={"케이크"}
+        />
+        <CategoryBox
           className={getMenuClassName(Bingsu)}
           onClick={() => handleMenuClick(Bingsu)}
-        >
-          <img src={Bingsu} alt="bingsu" />
-          <div className={classes["menu-name"]}>빙수</div>
-        </div>
+          imageSrc={Bingsu}
+          categoryName={"빙수"}
+        />
       </div>
       <Link to={"/temperature"}>
         <button className={classes["select-btn"]}>선택완료</button>
@@ -87,4 +84,4 @@ const MenuPage = () => {
   );
 };
 
-export default MenuPage;
+export default CategoryPage;
