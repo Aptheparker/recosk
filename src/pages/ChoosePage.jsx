@@ -10,7 +10,7 @@ const ChoosePage = () => {
         <Link to="/normal" className={classes['choose-button']}>
           일반 주문
         </Link>
-        <Link to="/menu" className={classes['choose-button']}>
+        <Link to="/category" className={classes['choose-button']}>
           추천 주문
         </Link>
       </div>
