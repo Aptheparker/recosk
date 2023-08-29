@@ -9,6 +9,7 @@ function RootLayout() {
     <SelectedListProvider>
       <Outlet />
     </SelectedListProvider>
+
   );
 }
 

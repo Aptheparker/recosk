@@ -1,4 +1,4 @@
-import { useState } from "react";
+// import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 // components
@@ -15,19 +15,34 @@ import Icecream from "../assets/icecream.png";
 import Cake from "../assets/cake.png";
 import Bingsu from "../assets/bingsu.png";
 
+//import
+import { useContext } from "react";
+import { SelectedList } from "../context/SelectedList";
+
+
+
 const CategoryPage = () => {
-  const [selectedMenu, setSelectedMenu] = useState("");
+  const selectedList = useContext(SelectedList);
+  // const [selectedMenu, setSelectedMenu] = useState("");
+  const selectedCategory = selectedList.category;
+
+  const setCategory = (data) => {
+    selectedList.setCategory(data);
+  }
 
   const handleMenuClick = (menu) => {
-    if (selectedMenu === menu) {
-      setSelectedMenu(null);
+    if (selectedCategory === menu) {
+      setCategory(null);
+      // setSelectedMenu(null);
     } else {
-      setSelectedMenu(menu);
+      setCategory(menu);
+      // setSelectedMenu(menu);
     }
   };
 
+  console.log(selectedCategory);
   const getMenuClassName = (menu) => {
-    if (selectedMenu === menu) {
+    if (selectedCategory === menu) {
       return classes["selected-menu"]; // selected
     }
     return classes["menu-container"]; // not selected
@@ -40,37 +55,37 @@ const CategoryPage = () => {
       <div className={classes["menus-container"]}>
         <CategoryBox
           className={getMenuClassName(Coffee)}
-          onClick={() => handleMenuClick(Coffee)}
+          onClick={() => handleMenuClick("Coffee")}
           imageSrc={Coffee}
           categoryName={"커피"}
         />
         <CategoryBox
           className={getMenuClassName(Tea)}
-          onClick={() => handleMenuClick(Tea)}
+          onClick={() => handleMenuClick("Tea")}
           imageSrc={Tea}
           categoryName={"차"}
         />
         <CategoryBox
           className={getMenuClassName(Juice)}
-          onClick={() => handleMenuClick(Juice)}
+          onClick={() => handleMenuClick("Juice")}
           imageSrc={Juice}
           categoryName={"주스"}
         />
         <CategoryBox
           className={getMenuClassName(Icecream)}
-          onClick={() => handleMenuClick(Icecream)}
+          onClick={() => handleMenuClick("Icecream")}
           imageSrc={Icecream}
           categoryName={"아이스크림"}
         />
         <CategoryBox
           className={getMenuClassName(Cake)}
-          onClick={() => handleMenuClick(Cake)}
+          onClick={() => handleMenuClick("Cake")}
           imageSrc={Cake}
           categoryName={"케이크"}
         />
         <CategoryBox
           className={getMenuClassName(Bingsu)}
-          onClick={() => handleMenuClick(Bingsu)}
+          onClick={() => handleMenuClick("Bingsu")}
           imageSrc={Bingsu}
           categoryName={"빙수"}
         />

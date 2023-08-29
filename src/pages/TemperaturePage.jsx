@@ -1,24 +1,51 @@
 // hooks
 import { Link } from "react-router-dom";
+import { useContext } from "react";
 
 // css
 import classes from "./TemperaturePage.module.css";
 
-const TemperaturePage = () => {
+//import
+import { SelectedList } from "../context/SelectedList";
 
+
+const TemperaturePage = () => {
+  const selectedTemperature = useContext(SelectedList);
+  const temp = selectedTemperature.temperature;
+
+  const setTemp = (e) => {
+    if (e.target.id === temp) {
+      selectedTemperature.setTemperature("");
+    } else if (e.target.id === "hot") {
+      selectedTemperature.setTemperature("hot");
+    } else if (e.target.id === "cold") {
+      selectedTemperature.setTemperature("cold");
+    } else {
+      selectedTemperature.setTemperature("none")
+    }
+  }
+
+  const onClickButtonHandler = (e) => {
+    if (temp === "") {
+      e.preventDefault();
+      alert("온도를 선택해주세요!");
+    }
+  }
+
+  console.log(temp);
   return (
     <div className={classes["page-container"]}>
       <div className={classes["title"]}>Recosk</div>
       <div className={classes["description"]}>음료의 온도를 선택해주세요</div>
       <div className={classes["temperature-container"]}>
         <div className={classes["buttons"]}>
-          <div className={classes['temperature-btn']}/>
-          <div className={classes['temperature-btn']}/>
-          <div className={classes['temperature-btn']}/>
+          <div className={classes['temperature-btn']} id="hot" onClick={setTemp}/>
+          <div className={classes['temperature-btn']} id="cold" onClick={setTemp}/>
+          <div className={classes['temperature-btn']} id="none" onClick={setTemp}/>
         </div>
       </div>
       <Link to={"/option"}>
-        <button className={classes["select-btn"]}>선택완료</button>
+        <button className={classes["select-btn"]} onClick={onClickButtonHandler}>선택완료</button>
       </Link>
     </div>
   );
