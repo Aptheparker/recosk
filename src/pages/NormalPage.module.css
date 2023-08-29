@@ -1,0 +1,15 @@
+.background {
+    width: 100vw;
+    height: 100vh;
+}
+
+.header {
+    height: 8.35vh;
+    width: 100vw;
+    background-color: gray;
+
+}
+
+.header-text {
+    margin: 0
+}
