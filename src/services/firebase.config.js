@@ -1,14 +1,16 @@
-import { initializeApp } from "firebase/app";
-import { getFireStore } from "firebase/firestore";
+import { initializeApp } from 'firebase/app';
+import { getFireStore } from 'firebase/firestore';
+
+const { VITE_FIREBASE_API_KEY } = import.meta.env;
 
 const firebaseConfig = {
-  apiKey: process.env.FIREBASE_API_KEY,
-  authDomain: "recosk-menu.firebaseapp.com",
-  projectId: "recosk-menu",
-  storageBucket: "recosk-menu.appspot.com",
-  messagingSenderId: "512761099495",
-  appId: "1:512761099495:web:976c597e4c5617fae15e42",
-  measurementId: "G-D4MDW2WV2Y"
+  apiKey: VITE_FIREBASE_API_KEY,
+  authDomain: 'kiosk-86e88.firebaseapp.com',
+  projectId: 'kiosk-86e88',
+  storageBucket: 'kiosk-86e88.appspot.com',
+  messagingSenderId: '170252573353',
+  appId: '1:170252573353:web:3bbaab7c042789820e67b8',
+  measurementId: 'G-BZYK4W263T',
 };
 
 // Initialize Firebase
