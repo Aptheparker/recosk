@@ -1,4 +1,4 @@
-.recommend-page-container {
+.page-container {
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -7,63 +7,53 @@
   justify-content: space-between;
 }
 
-.recommend-title-container {
+.title {
   width: 100%;
-  padding: 5%;
+  padding: 3%;
   background-color: grey;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.recommend-title__text {
   font-family: 'copperplate';
   color: black;
   font-size: 4rem;
 }
 
-.menus-container {
-  display: grid;
-  grid-template-columns: 200px 200px 200px;
-  grid-template-rows: 250px 250px;
-  column-gap: 100px;
-  row-gap: 250px;
-  margin: 10%;
+.description{
+  font-size: 3rem;
+  font-family: 'Inter';
 }
 
-.image-container {
+.menus-container {
+  display: grid;
+  grid-template-columns: 20vw 20vw 20vw;
+  grid-template-rows: 15vh 15vh;
+  column-gap: 10vw;
+  row-gap: 10vh;
+  margin: 15%;
+}
+
+.menu-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-}
-
-.image-container img {
-  width: 150px;
-  height: 150px;
-  object-fit: contain;
+  justify-content: space-between;
 }
 
 .selected-menu{
-  border: 5px solid red;
+  border: 3px solid red;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-}
-
-.selected-menu img {
-  width: 150px;
-  height: 150px;
-  object-fit: contain;
+  justify-content: space-between;
 }
 
 .select-btn {
-  font-size: 48px;
+  width: 100%;
+  font-size: 32px;
   background-color: grey;
   border: none;
   cursor: pointer;
   border-radius: 64px;
-  margin: 10%;
 }

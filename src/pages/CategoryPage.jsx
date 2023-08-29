@@ -30,15 +30,13 @@ const CategoryPage = () => {
     if (selectedMenu === menu) {
       return classes["selected-menu"]; // selected
     }
-    return classes["image-container"]; // not selected
+    return classes["menu-container"]; // not selected
   };
 
   return (
-    <div className={classes["recommend-page-container"]}>
-      <div className={classes["recommend-title-container"]}>
-        <div className={classes["recommend-title__text"]}>Recosk</div>
-      </div>
-      <h1>원하시는 종류를 선택해주세요</h1>
+    <div className={classes["page-container"]}>
+      <div className={classes["title"]}>Recosk</div>
+      <div className={classes["description"]}>원하시는 종류를 선택해주세요</div>
       <div className={classes["menus-container"]}>
         <CategoryBox
           className={getMenuClassName(Coffee)}
