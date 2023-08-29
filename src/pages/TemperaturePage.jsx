@@ -1,3 +1,7 @@
+// hooks
+import { Link } from "react-router-dom";
+
+// css
 import classes from "./TemperaturePage.module.css";
 
 const TemperaturePage = () => {
@@ -7,11 +11,15 @@ const TemperaturePage = () => {
       <div className={classes["title"]}>Recosk</div>
       <div className={classes["description"]}>음료의 온도를 선택해주세요</div>
       <div className={classes["temperature-container"]}>
-        <button>1</button>
-        <button>2</button>
-        <button>3</button>
+        <div className={classes["buttons"]}>
+          <div className={classes['temperature-btn']}/>
+          <div className={classes['temperature-btn']}/>
+          <div className={classes['temperature-btn']}/>
+        </div>
       </div>
-      <button>4</button>
+      <Link to={"/option"}>
+        <button className={classes["select-btn"]}>선택완료</button>
+      </Link>
     </div>
   );
 }

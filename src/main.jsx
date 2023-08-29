@@ -9,6 +9,7 @@ import ChoosePage from "./pages/ChoosePage.jsx";
 import NormalPage from './pages/NormalPage.jsx';
 import CategoryPage from './pages/CategoryPage.jsx';
 import TemperaturePage from './pages/TemperaturePage.jsx';
+import OptionPage from './pages/OptionPage.jsx';
 
 // styles
 import "./index.css";
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: "/temperature",
         element: <TemperaturePage />,
+      },
+      {
+        path: "/option",
+        element: <OptionPage />,
       }
     ],
   },

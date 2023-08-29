@@ -14,21 +14,50 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'copperplate';
+  font-family: "copperplate";
   color: black;
   font-size: 4rem;
 }
 
-.description{
+.description {
   font-size: 3rem;
-  font-family: 'Inter';
+  font-family: "Inter";
 }
 
-.temperature-container{
-  width: 50%;
-  height: 50%;
-  background-image: url('../assets/temperature.svg');
+.temperature-container {
+  width: 60vw;
+  height: 60vh;
+  background-image: url("../assets/temperature.svg");
   background-size: contain;
   background-repeat: no-repeat;
-  margin: 20% 15% 20% 0;
+  margin: 0 15% 0 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.buttons{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 73%;
+  margin: 14% 0 0 61.5%;
+  width: 10%;
+}
+
+.temperature-btn {
+  background-image: url("../assets/temperature_button.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+}
+
+.select-btn {
+  width: 100%;
+  font-size: 32px;
+  background-color: grey;
+  border: none;
+  cursor: pointer;
+  border-radius: 64px;
 }
