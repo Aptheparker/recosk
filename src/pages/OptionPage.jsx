@@ -11,6 +11,7 @@ const OptionPage = () => {
   const selectionContext = useContext(SelectedList);
   const ingredients = selectionContext.ingredients;
   const fruits = selectionContext.fruits;
+  const taste = selectionContext.taste;
 
   const setFruits = (data) => {
     if (fruits.includes(data)) {
@@ -28,6 +29,14 @@ const OptionPage = () => {
     }
   };
 
+  const setTaste = (data) => {
+    if (taste.includes(data)) {
+      selectionContext.setTaste({ type: "DELETE", payload: data });
+    } else {
+      selectionContext.setTaste({ type: "ADD", payload: data });
+    }
+  };
+
   const onClickIngreButtonHandler = (e) => {
     setIngredients(e.target.id);
   };
@@ -36,7 +45,12 @@ const OptionPage = () => {
     setFruits(e.target.id);
   };
 
+  const onClickTasteButtonHandler = (e) => {
+    setTaste(e.target.id);
+  };
+
   console.log(ingredients);
+  console.log(taste);
   return (
     <div className={classes["page-container"]}>
       <div className={classes["title"]}>Recosk</div>
@@ -59,6 +73,15 @@ const OptionPage = () => {
         </button>
         <button id="grapes" onClick={onClickFruitsButtonHandler}>
           grapes
+        </button>
+        <button id="sweat" onClick={onClickTasteButtonHandler}>
+          달달
+        </button>
+        <button id="bitter" onClick={onClickTasteButtonHandler}>
+          씀
+        </button>
+        <button id="goso" onClick={onClickTasteButtonHandler}>
+          고소~
         </button>
 
         <Link to={"/taste"}>

@@ -10,8 +10,7 @@ import NormalPage from './pages/NormalPage.jsx';
 import CategoryPage from './pages/CategoryPage.jsx';
 import TemperaturePage from './pages/TemperaturePage.jsx';
 import OptionPage from './pages/OptionPage.jsx';
-import SelectTaste from './pages/SelectTaste.jsx';
-import LoadingMenu from './pages/LoadingMenu.jsx';
+import LoadingPage from './pages/LoadingPage.jsx';
 
 // styles
 import './index.css';
@@ -46,12 +45,8 @@ const router = createBrowserRouter([
 				element: <OptionPage />,
 			},
 			{
-				path: '/taste',
-				element: <SelectTaste />,
-			},
-			{
-				path: '/menu',
-				element: <LoadingMenu />,
+				path: '/loading',
+				element: <LoadingPage />,
 			},
 		],
 	},
