@@ -23,26 +23,44 @@ export const SelectedListProvider = () => {
 	const [category, setCategory] = useState('');
 	const [temperature, setTemperature] = useState('');
 	// const [ingredients, setIngredients] = useState([]);
-	const [fruits, setFruits] = useState([]);
-	const [taste, setTaste] = useState([]);
+	// const [fruits, setFruits] = useState([]);
+	// const [taste, setTaste] = useState([]);
+
+	const ingredientsReducer = (state, action) => {
+		switch (action.type) {
+			case 'BAN':
+				return state.filter((item) => item !== action.payload);
+			case 'ADD':
+				return [...state, action.payload];
+		}
+	};
 
 	const [ingredientsState, dispatchIngredientsState] = useReducer(
 		ingredientsReducer,
 		['caffeine', 'chocolate', 'milk']
 	);
 
-	const ingredientsReducer = (state, action) => {
+	const fruitsReducer = (state, action) => {
 		switch (action.type) {
-			case 'BAN_CAFFEINE':
-				return ['chocolate', 'milk'];
-			case 'BAN_MILK':
-				return ['chocolate', 'caffeine'];
-			case 'BAN_CHOCOLATE':
-				return ['milk', 'caffeine'];
-			default:
-				return ['milk', 'caffeine', 'chocolate'];
+			case 'DELETE':
+				return state.filter((item) => item !== action.payload);
+			case 'ADD':
+				return [...state, action.payload];
 		}
 	};
+
+	const [fruitsState, dispatchFruitsState] = useReducer(fruitsReducer, []);
+
+	const tasteReducer = (state, action) => {
+		switch (action.type) {
+			case 'DELETE':
+				return state.filter((item) => item !== action.payload);
+			case 'ADD':
+				return [...state, action.payload];
+		}
+	};
+
+	const [tasteState, dispatchTasteState] = useReducer(tasteReducer, []);
 
 	return (
 		<SelectedList.Provider
@@ -50,13 +68,13 @@ export const SelectedListProvider = () => {
 				category: category,
 				temperature: temperature,
 				ingredients: ingredientsState,
-				fruits: fruits,
-				taste: taste,
+				fruits: fruitsState,
+				taste: tasteState,
 				setCategory: setCategory,
 				setTemperature: setTemperature,
 				setIngredients: dispatchIngredientsState,
-				setFruits: setFruits,
-				setTaste: setTaste,
+				setFruits: dispatchFruitsState,
+				setTaste: dispatchTasteState,
 			}}
 		>
 			{props.children}

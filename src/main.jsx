@@ -1,52 +1,62 @@
 // import React from "react";
-import ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import ReactDOM from 'react-dom/client';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 // pages
-import RootLayout from "./pages/RootLayout.jsx";
-import StartPage from "./pages/StartPage.jsx";
-import ChoosePage from "./pages/ChoosePage.jsx";
+import RootLayout from './pages/RootLayout.jsx';
+import StartPage from './pages/StartPage.jsx';
+import ChoosePage from './pages/ChoosePage.jsx';
 import NormalPage from './pages/NormalPage.jsx';
 import CategoryPage from './pages/CategoryPage.jsx';
 import TemperaturePage from './pages/TemperaturePage.jsx';
 import OptionPage from './pages/OptionPage.jsx';
+import SelectTaste from './pages/SelectTaste.jsx';
+import LoadingMenu from './pages/LoadingMenu.jsx';
 
 // styles
-import "./index.css";
+import './index.css';
 
 const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <RootLayout />,
-    children: [
-      {
-        path: "/",
-        element: <StartPage />,
-      },
-      {
-        path: "/choose",
-        element: <ChoosePage />,
-      },
-      {
-        path: "/normal",
-        element: <NormalPage />
-      },
-      {
-        path: "/category",
-        element: <CategoryPage />,
-      },
-      {
-        path: "/temperature",
-        element: <TemperaturePage />,
-      },
-      {
-        path: "/option",
-        element: <OptionPage />,
-      }
-    ],
-  },
+	{
+		path: '/',
+		element: <RootLayout />,
+		children: [
+			{
+				path: '/',
+				element: <StartPage />,
+			},
+			{
+				path: '/choose',
+				element: <ChoosePage />,
+			},
+			{
+				path: '/normal',
+				element: <NormalPage />,
+			},
+			{
+				path: '/category',
+				element: <CategoryPage />,
+			},
+			{
+				path: '/temperature',
+				element: <TemperaturePage />,
+			},
+			{
+				path: '/option',
+				element: <OptionPage />,
+			},
+			{
+				path: '/taste',
+				element: <SelectTaste />,
+			},
+			{
+				path: '/menu',
+				element: <LoadingMenu />,
+			},
+		],
+	},
 ]);
 
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <RouterProvider router={router} />
+ReactDOM.createRoot(document.getElementById('root')).render(
+	<RouterProvider router={router} />
 );
