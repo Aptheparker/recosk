@@ -1,11 +1,16 @@
+// hooks
 import { createContext, useReducer, useState } from 'react';
 
+// context
 export const SelectedList = createContext({
+	// init
 	category: '',
 	temperature: '',
 	ingredients: [],
 	fruits: [],
 	taste: [],
+	 
+	// set functions
 	setCategory: () => {},
 	setTemperature: () => {},
 	setIngredients: () => {},
@@ -13,7 +18,8 @@ export const SelectedList = createContext({
 	setTaste: () => {},
 });
 
-export const SelectedListProvider = (props) => {
+// context provider
+export const SelectedListProvider = () => {
 	const [category, setCategory] = useState('');
 	const [temperature, setTemperature] = useState('');
 	// const [ingredients, setIngredients] = useState([]);
