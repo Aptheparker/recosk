@@ -55,34 +55,65 @@ const OptionPage = () => {
     <div className={classes["page-container"]}>
       <div className={classes["title"]}>Recosk</div>
       <div className={classes["description"]}>옵션을 선택해주세요</div>
-      <div>
-        <button id="milk" onClick={onClickIngreButtonHandler}>
-          milk
-        </button>
-        <button id="chocolate" onClick={onClickIngreButtonHandler}>
-          chocolate
-        </button>
-        <button id="caffeine" onClick={onClickIngreButtonHandler}>
-          caffeine
-        </button>
-        <button id="apple" onClick={onClickFruitsButtonHandler}>
-          apple
-        </button>
-        <button id="mango" onClick={onClickFruitsButtonHandler}>
-          mango
-        </button>
-        <button id="grapes" onClick={onClickFruitsButtonHandler}>
-          grapes
-        </button>
-        <button id="sweat" onClick={onClickTasteButtonHandler}>
-          달달
-        </button>
-        <button id="bitter" onClick={onClickTasteButtonHandler}>
-          씀
-        </button>
-        <button id="goso" onClick={onClickTasteButtonHandler}>
-          고소~
-        </button>
+
+      <div className={classes["option-container"]}>
+
+        <div className={classes["ingredients-header"]}>
+          <div>재료</div>
+          <div>
+            <span style={{color: "#FF6948"}}>제외할 재료</span>를 선택해주세요
+          </div>
+        </div>
+
+        <div className={classes["ingredients"]}>
+          <button id="milk" onClick={onClickIngreButtonHandler}>
+            milk
+          </button>
+          <button id="chocolate" onClick={onClickIngreButtonHandler}>
+            chocolate
+          </button>
+          <button id="caffeine" onClick={onClickIngreButtonHandler}>
+            caffeine
+          </button>
+        </div>
+
+        <div className={classes["fruits-header"]}>
+          <div>재료</div>
+          <div>
+            <span style={{color: "#FF6948"}}>제외할 과일</span>를 선택해주세요
+          </div>
+        </div>
+
+        <div className={classes["fruits"]}>
+          <button id="apple" onClick={onClickFruitsButtonHandler}>
+            apple
+          </button>
+          <button id="mango" onClick={onClickFruitsButtonHandler}>
+            mango
+          </button>
+          <button id="grapes" onClick={onClickFruitsButtonHandler}>
+            grapes
+          </button>
+        </div>
+
+        <div className={classes["taste-header"]}>
+          <div>재료</div>
+          <div>
+            <span style={{color: "#006DF0"}}>선호하는 맛</span>을 선택해주세요
+          </div>
+        </div>
+
+        <div className={classes["taste"]}>
+          <button id="sweat" onClick={onClickTasteButtonHandler}>
+            달달
+          </button>
+          <button id="bitter" onClick={onClickTasteButtonHandler}>
+            씀
+          </button>
+          <button id="goso" onClick={onClickTasteButtonHandler}>
+            고소~
+          </button>
+        </div>
 
         <Link to={"/loading"}>
           <button>선택완료</button>
