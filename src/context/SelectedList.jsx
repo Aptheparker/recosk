@@ -19,7 +19,7 @@ export const SelectedList = createContext({
 });
 
 // context provider
-export const SelectedListProvider = () => {
+export const SelectedListProvider = (props) => {
 	const [category, setCategory] = useState('');
 	const [temperature, setTemperature] = useState('');
 	// const [ingredients, setIngredients] = useState([]);

@@ -8,6 +8,9 @@ import classes from "./TemperaturePage.module.css";
 //import
 import { SelectedList } from "../context/SelectedList";
 
+// images
+import Button from "../assets/temperature_button.png";
+
 
 const TemperaturePage = () => {
   const selectedTemperature = useContext(SelectedList);
@@ -33,15 +36,24 @@ const TemperaturePage = () => {
   }
 
   console.log(temp);
+
   return (
     <div className={classes["page-container"]}>
       <div className={classes["title"]}>Recosk</div>
       <div className={classes["description"]}>음료의 온도를 선택해주세요</div>
       <div className={classes["temperature-container"]}>
         <div className={classes["buttons"]}>
-          <div className={classes['temperature-btn']} id="hot" onClick={setTemp}/>
-          <div className={classes['temperature-btn']} id="cold" onClick={setTemp}/>
-          <div className={classes['temperature-btn']} id="none" onClick={setTemp}/>
+          <button className={classes['temperature-btn']} onClick={setTemp}>
+            <img src={Button} id="hot" alt="Button" />
+          </button>
+          <button className={classes['temperature-btn']} onClick={setTemp}>
+            <img src={Button} id="none" alt="Button" />
+          </button>
+          <button className={classes['temperature-btn']} onClick={setTemp}>
+            <img src={Button} id="cold" alt="Button" />
+          </button>
+          {/* <button className={classes['temperature-btn']} id="cold" onClick={setTemp}/>
+          <button className={classes['temperature-btn']} id="none" onClick={setTemp}/> */}
         </div>
       </div>
       <Link to={"/option"}>
