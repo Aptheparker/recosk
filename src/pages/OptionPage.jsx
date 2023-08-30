@@ -84,7 +84,7 @@ const OptionPage = () => {
           고소~
         </button>
 
-        <Link to={"/taste"}>
+        <Link to={"/loading"}>
           <button>선택완료</button>
         </Link>
       </div>
