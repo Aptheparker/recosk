@@ -1,3 +1,6 @@
+// hooks
+import { useNavigate } from "react-router-dom";
+
 // components
 import Header from "../components/Layout/Header";
 import SelectedDescription from "../assets/descriptions/selected_description.png";
@@ -7,6 +10,17 @@ import SelectButton from "../components/Common/SelectButton";
 import classes from "./SelectedMenuPage.module.css";
 
 const SelectedMenuPage = () => {
+
+  const navigate = useNavigate();
+
+  const onClickFinishHandler = (e) => {
+    navigate("/finish")
+  };
+
+  const onClickMoreHandler = (e) => {
+    navigate("/more")
+  };
+
   return (
     <div className={classes["page-container"]}>
       <Header />
@@ -18,12 +32,12 @@ const SelectedMenuPage = () => {
             추천 메뉴가 
 						<br />마음에 드시나요?
           </div>
-          <SelectButton text={"장바구니 담기"} />
+          <SelectButton text={"장바구니 담기"} onClick={onClickFinishHandler}/>
         </div>
         <div className={classes["choice"]}>
           <div className={classes["question"]}>자세한 
 					<br />추천을 원하시나요?</div>
-          <SelectButton text={"추천 더 받기"} />
+          <SelectButton text={"추천 더 받기"} onClick={onClickMoreHandler}/>
         </div>
       </div>
     </div>

@@ -11,11 +11,13 @@ import CategoryPage from './pages/CategoryPage.jsx';
 import TemperaturePage from './pages/TemperaturePage.jsx';
 import OptionPage from './pages/OptionPage.jsx';
 import LoadingPage from './pages/LoadingPage.jsx';
+import RootMenu from './pages/RootMenu.jsx';
+import SelectedMenuPage from './pages/SelectedMenuPage.jsx';
+import FinishPage from './pages/FinishPage.jsx';
+import MorePage from './pages/MorePage.jsx';
 
 // styles
 import './index.css';
-import RootMenu from './pages/RootMenu.jsx';
-import SelectedMenuPage from './pages/SelectedMenuPage.jsx';
 
 const router = createBrowserRouter([
 	{
@@ -60,6 +62,14 @@ const router = createBrowserRouter([
 					},
 				],
 			},
+			{
+				path: '/finish',
+				element: <FinishPage />,
+			},
+			{
+				path: '/more',
+				element: <MorePage />,
+			}
 		],
 	},
 ]);
