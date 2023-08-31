@@ -1,10 +1,10 @@
 // css
 import classes from "./SelectButton.module.css";
 
-const SelectButton = ({onClick}) => {
+const SelectButton = ({ text, onClick}) => {
   return (
     <button className={classes["select-btn"]} onClick={onClick}>
-      선택완료
+      {text}
     </button>
   );
 };

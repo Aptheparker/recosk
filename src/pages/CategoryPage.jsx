@@ -104,7 +104,7 @@ const CategoryPage = () => {
         />
       </div>
 
-      <SelectButton onClick={onClickButtonHandler}/>
+      <SelectButton text={"선택완료"} onClick={onClickButtonHandler}/>
     </div>
   );
 };
