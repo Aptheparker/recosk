@@ -12,6 +12,7 @@ import Header from "../components/Layout/Header";
 import SelectButton from "../components/Common/SelectButton";
 
 // images
+import OptionDescription from '../assets/descriptions/option_description.png';
 import Chocolate from "../assets/ingredients/chocolate.png";
 import Caffein from "../assets/ingredients/caffeine.png";
 import Milk from "../assets/ingredients/milk.png";
@@ -83,8 +84,7 @@ const OptionPage = () => {
   return (
     <div className={classes["page-container"]}>
       <Header />
-      <div className={classes["description"]}>옵션을 선택해주세요</div>
-
+			<img src={OptionDescription} alt="option-description" />
       <div className={classes["ingredients-header"]}>
         <div>재료</div>
         <div>
@@ -116,7 +116,7 @@ const OptionPage = () => {
       </div>
 
       <div className={classes["fruits-header"]}>
-        <div>재료</div>
+        <div>과일</div>
         <div>
           <span style={{ color: "#FF6948" }}>제외할 과일</span>를 선택해주세요
         </div>
@@ -175,7 +175,7 @@ const OptionPage = () => {
       </div>
 
       <div className={classes["taste-header"]}>
-        <div>재료</div>
+        <div>맛</div>
         <div>
           <span style={{ color: "#006DF0" }}>선호하는 맛</span>을 선택해주세요
         </div>
