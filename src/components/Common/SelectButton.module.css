@@ -1,0 +1,11 @@
+.select-btn {
+  width: 25%;
+  font-size: 48px;
+  background-color: #4D4D4D;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 64px;
+  margin: 5%;
+  padding: 1%;
+}

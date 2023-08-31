@@ -14,6 +14,9 @@ import { useNavigate } from 'react-router-dom';
 import { SelectedList } from '../context/SelectedList';
 import { SelectedMenu } from '../context/SelectedMenu';
 
+// components
+import Header from '../components/Layout/Header';
+
 const LoadingPage = () => {
 	const [menus, setMenus] = useState([]);
 	const [allMenus, setAllMenus] = useState([]);
@@ -104,7 +107,7 @@ const LoadingPage = () => {
 
 	return (
 		<div className={classes['page-container']}>
-			<div className={classes['title']}>Recosk</div>
+			<Header />
 			{/* temp image */}
 			<img src={Button} alt='' />
 			<div className={classes['description']}>
