@@ -8,15 +8,14 @@ import CategoryBox from '../components/RecommendMenu/CategoryBox';
 import classes from './CategoryPage.module.css';
 
 // images
-import Coffee from '../assets/coffee.png';
-import Tea from '../assets/tea.png';
-import Juice from '../assets/juice.png';
-import Icecream from '../assets/icecream.png';
-import Cake from '../assets/cake.png';
-import Bingsu from '../assets/bingsu.png';
+import Coffee from '../assets/category/coffee.png';
+import Tea from '../assets/category/tea.png';
+import Juice from '../assets/category/juice.png';
+import Icecream from '../assets/category/icecream.png';
+import Cake from '../assets/category/cake.png';
+import Bingsu from '../assets/category/bingsu.png';
 
 //import
-
 import { useContext } from 'react';
 import { SelectedList } from '../context/SelectedList';
 

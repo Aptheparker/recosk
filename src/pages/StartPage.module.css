@@ -1,29 +1,20 @@
-.start-page-container {
+.page-container {
+  background-image: url("../assets/backgrounds/start_background.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
   width: 100vw;
   height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-}
-
-.start-button-container{
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.start-button{
-  padding: 3%;
-  background-color: grey;
-  color: black;
-  border-radius: 10px;
-  font-size: 4em;
+.start-btn{
+  margin: 80% 0 0 0;
 }
 
-.start-button:hover{
-  background-color: rgb(153, 151, 151);
-  color: white;
+.finger-img{
+  margin: -10% 0 0 10%;
+  pointer-events: none;
 }

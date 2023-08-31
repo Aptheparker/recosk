@@ -9,7 +9,7 @@ import classes from "./TemperaturePage.module.css";
 import { SelectedList } from "../context/SelectedList";
 
 // images
-import Button from "../assets/temperature_button.png";
+import Button from "../assets/images/temperature_button.png";
 
 
 const TemperaturePage = () => {

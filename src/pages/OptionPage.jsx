@@ -152,48 +152,6 @@ const OptionPage = () => {
       </Link>
     </div>
   );
-	console.log(ingredients);
-	console.log(fruits);
-	console.log(taste);
-	return (
-		<div className={classes['page-container']}>
-			<div className={classes['title']}>Recosk</div>
-			<div className={classes['description']}>옵션을 선택해주세요</div>
-			<div>
-				<button id='milk' onClick={onClickIngreButtonHandler}>
-					milk
-				</button>
-				<button id='chocolate' onClick={onClickIngreButtonHandler}>
-					chocolate
-				</button>
-				<button id='caffeine' onClick={onClickIngreButtonHandler}>
-					caffeine
-				</button>
-				<button id='apple' onClick={onClickFruitsButtonHandler}>
-					apple
-				</button>
-				<button id='mango' onClick={onClickFruitsButtonHandler}>
-					mango
-				</button>
-				<button id='grapes' onClick={onClickFruitsButtonHandler}>
-					grapes
-				</button>
-				<button id='sweat' onClick={onClickTasteButtonHandler}>
-					달달
-				</button>
-				<button id='bitter' onClick={onClickTasteButtonHandler}>
-					씀
-				</button>
-				<button id='sour' onClick={onClickTasteButtonHandler}>
-					셔요
-				</button>
-
-				<Link to={'/loading'}>
-					<button>선택완료</button>
-				</Link>
-			</div>
-		</div>
-	);
 };
 
 export default OptionPage;
