@@ -9,7 +9,7 @@ import classes from "./OptionPage.module.css";
 
 // images
 import Chocolate from "../assets/ingredients/chocolate.png";
-import Caffein from '../assets/ingredients/caffein.png';
+import Caffein from '../assets/ingredients/caffeine.png';
 import Milk from '../assets/ingredients/milk.png';
 import Peach from '../assets/fruits/peach.png';
 import Orange from '../assets/fruits/orange.png';
@@ -67,7 +67,9 @@ const OptionPage = () => {
   };
 
   console.log(ingredients);
+  console.log(fruits);
   console.log(taste);
+  
   return (
     <div className={classes["page-container"]}>
       <div className={classes["title"]}>Recosk</div>
@@ -85,7 +87,7 @@ const OptionPage = () => {
           <img src={Chocolate} id="chocolate" alt="" />
         </button>
         <button className={classes["option-btn"]} onClick={onClickIngreButtonHandler}>
-          <img src={Caffein} id="caffein" alt="" />
+          <img src={Caffein} id="caffeine" alt="" />
         </button>
         <button className={classes["option-btn"]} onClick={onClickIngreButtonHandler}>
           <img src={Milk} id="milk" alt="" />

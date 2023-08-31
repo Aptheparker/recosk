@@ -1,5 +1,5 @@
 // import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // components
 import CategoryBox from "../components/RecommendMenu/CategoryBox";
@@ -19,33 +19,42 @@ import Bingsu from "../assets/bingsu.png";
 import { useContext } from "react";
 import { SelectedList } from "../context/SelectedList";
 
-
-
 const CategoryPage = () => {
   const selectedList = useContext(SelectedList);
   // const [selectedMenu, setSelectedMenu] = useState("");
   const selectedCategory = selectedList.category;
 
-  const setCategory = (data) => {
-    selectedList.setCategory(data);
-  }
+  const navigate = useNavigate();
 
   const handleMenuClick = (menu) => {
     if (selectedCategory === menu) {
-      setCategory(null);
-      // setSelectedMenu(null);
+      selectedList.setCategory(null);
     } else {
-      setCategory(menu);
-      // setSelectedMenu(menu);
+      selectedList.setCategory(menu);
     }
   };
 
   console.log(selectedCategory);
+  // console.log(selectedList);
+
   const getMenuClassName = (menu) => {
     if (selectedCategory === menu) {
       return classes["selected-menu"]; // selected
     }
     return classes["menu-container"]; // not selected
+  };
+
+  const onClickButtonHandler = (e) => { // select button clicked
+    if (selectedCategory === "") {
+      e.preventDefault();
+      alert("종류를 선택해주세요!");
+    }
+    else if(selectedCategory === "Coffee" || selectedCategory === "Tea" || selectedCategory === "Juice") {
+      navigate("/temperature");
+    }
+    else {
+      navigate("/option");
+    }
   };
 
   return (
@@ -90,9 +99,15 @@ const CategoryPage = () => {
           categoryName={"빙수"}
         />
       </div>
-      <Link to={"/temperature"}>
-        <button className={classes["select-btn"]}>선택완료</button>
-      </Link>
+
+      <div>
+        <button
+          className={classes["select-btn"]}
+          onClick={onClickButtonHandler}
+        >
+          선택완료
+        </button>
+      </div>
     </div>
   );
 };
