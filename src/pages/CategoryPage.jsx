@@ -20,12 +20,12 @@ import { useContext } from 'react';
 import { SelectedList } from '../context/SelectedList';
 
 const CategoryPage = () => {
-	const selectedList = useContext(SelectedList);
+	const selectedContext = useContext(SelectedList);
 	// const [selectedMenu, setSelectedMenu] = useState("");
-	const selectedCategory = selectedList.category;
+	const selectedCategory = selectedContext.category;
 
 	const setCategory = (data) => {
-		selectedList.setCategory(data);
+		selectedContext.setCategory(data);
 	};
 
 	const handleMenuClick = (menu) => {
@@ -44,6 +44,13 @@ const CategoryPage = () => {
 			return classes['selected-menu']; // selected
 		}
 		return classes['menu-container']; // not selected
+	};
+
+	const onClickLinkButtonHandler = (e) => {
+		if (selectedContext.category === '') {
+			e.preventDefault();
+			alert('선택지를 고르세요!');
+		}
 	};
 
 	return (
@@ -89,7 +96,12 @@ const CategoryPage = () => {
 				/>
 			</div>
 			<Link to={'/temperature'}>
-				<button className={classes['select-btn']}>선택완료</button>
+				<button
+					className={classes['select-btn']}
+					onClick={onClickLinkButtonHandler}
+				>
+					선택완료
+				</button>
 			</Link>
 		</div>
 	);
