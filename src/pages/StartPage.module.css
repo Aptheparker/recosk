@@ -1,9 +1,15 @@
 .page-container {
-  background-image: url("../assets/backgrounds/start_background.svg");
-  background-size: cover;
-  background-repeat: no-repeat;
   width: 100vw;
   height: 100vh;
+}
+
+.page-background{
+  background-image: url("../assets/backgrounds/start_background.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,7 +17,7 @@
 }
 
 .start-btn{
-  margin: 80% 0 0 0;
+  margin: 75% 0 0 0;
 }
 
 .finger-img{

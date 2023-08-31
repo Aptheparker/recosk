@@ -2,18 +2,23 @@ import {Link} from "react-router-dom";
 
 import classes from "./ChoosePage.module.css";
 
+// images
+import NormalButton from "../assets/images/normal_button.png";
+import Recommend from "../assets/images/recommend_button.png";
+
 const ChoosePage = () => {
   return (
-    <div className={classes["choose-page-container"]}>
-      <h1>주문 방식을 선택해주세요</h1>
+    <div className={classes["page-container"]}>
+      <div className={classes["page-background"]}>
       <div className={classes["choose-button-container"]}>
         <Link to="/normal" className={classes['choose-button']}>
-          일반 주문
+          <img src={NormalButton} alt="normal-button" />
         </Link>
         <Link to="/category" className={classes['choose-button']}>
-          추천 주문
+          <img src={Recommend} alt="recommend-button" />
         </Link>
       </div>
+    </div>
     </div>
   );
 };
