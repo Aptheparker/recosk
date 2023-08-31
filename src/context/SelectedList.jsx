@@ -9,7 +9,7 @@ export const SelectedList = createContext({
 	ingredients: [],
 	fruits: [],
 	taste: [],
-	 
+
 	// set functions
 	setCategory: () => {},
 	setTemperature: () => {},
@@ -28,7 +28,7 @@ export const SelectedListProvider = (props) => {
 
 	const ingredientsReducer = (state, action) => {
 		switch (action.type) {
-			case 'BAN':
+			case 'DELETE':
 				return state.filter((item) => item !== action.payload);
 			case 'ADD':
 				return [...state, action.payload];
@@ -37,7 +37,7 @@ export const SelectedListProvider = (props) => {
 
 	const [ingredientsState, dispatchIngredientsState] = useReducer(
 		ingredientsReducer,
-		['caffeine', 'chocolate', 'milk']
+		[]
 	);
 
 	const fruitsReducer = (state, action) => {
