@@ -20,6 +20,7 @@ import { useContext } from 'react';
 import { SelectedList } from '../context/SelectedList';
 
 const CategoryPage = () => {
+
 	const selectedList = useContext(SelectedList);
 	const selectedCategory = selectedList.category;
   const navigate = useNavigate();
@@ -109,6 +110,13 @@ const CategoryPage = () => {
     </div>
   );
 
+	const onClickLinkButtonHandler = (e) => {
+		if (selectedContext.category === '') {
+			e.preventDefault();
+			alert('선택지를 고르세요!');
+		}
+	};
+
 	return (
 		<div className={classes['page-container']}>
 			<div className={classes['title']}>Recosk</div>
@@ -152,7 +160,12 @@ const CategoryPage = () => {
 				/>
 			</div>
 			<Link to={'/temperature'}>
-				<button className={classes['select-btn']}>선택완료</button>
+				<button
+					className={classes['select-btn']}
+					onClick={onClickLinkButtonHandler}
+				>
+					선택완료
+				</button>
 			</Link>
 		</div>
 	);

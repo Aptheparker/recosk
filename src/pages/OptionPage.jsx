@@ -23,7 +23,6 @@ import Bitter from '../assets/taste/bitter.png';
 import Sour from '../assets/taste/sour.png';
 import Nuts from '../assets/taste/nuts.png';
 
-
 const OptionPage = () => {
 	const selectionContext = useContext(SelectedList);
 	const ingredients = selectionContext.ingredients;
@@ -66,92 +65,144 @@ const OptionPage = () => {
 		setTaste(e.target.id);
 	};
 
-  console.log(ingredients);
-  console.log(fruits);
-  console.log(taste);
-  
-  return (
-    <div className={classes["page-container"]}>
-      <div className={classes["title"]}>Recosk</div>
-      <div className={classes["description"]}>옵션을 선택해주세요</div>
+	console.log(ingredients);
+	console.log(taste);
+	console.log(fruits);
 
-      <div className={classes["ingredients-header"]}>
-        <div>재료</div>
-        <div>
-          <span style={{ color: "#FF6948" }}>제외할 재료</span>를 선택해주세요
-        </div>
-      </div>
 
-      <div className={classes["ingredients"]}>
-        <button className={classes["option-btn"]} onClick={onClickIngreButtonHandler}>
-          <img src={Chocolate} id="chocolate" alt="" />
-        </button>
-        <button className={classes["option-btn"]} onClick={onClickIngreButtonHandler}>
-          <img src={Caffein} id="caffeine" alt="" />
-        </button>
-        <button className={classes["option-btn"]} onClick={onClickIngreButtonHandler}>
-          <img src={Milk} id="milk" alt="" />
-        </button>
-      </div>
+	return (
+		<div className={classes['page-container']}>
+			<div className={classes['title']}>Recosk</div>
+			<div className={classes['description']}>옵션을 선택해주세요</div>
 
-      <div className={classes["fruits-header"]}>
-        <div>재료</div>
-        <div>
-          <span style={{ color: "#FF6948" }}>제외할 과일</span>를 선택해주세요
-        </div>
-      </div>
+			<div className={classes['ingredients-header']}>
+				<div>재료</div>
+				<div>
+					<span style={{ color: '#FF6948' }}>제외할 재료</span>를 선택해주세요
+				</div>
+			</div>
 
-      <div className={classes["fruits"]}>
-        <button className={classes["option-btn"]} onClick={onClickFruitsButtonHandler}>
-          <img src={Peach} id="peach" alt="" />
-        </button>
-        <button className={classes["option-btn"]} onClick={onClickFruitsButtonHandler}>
-          <img src={Orange} id="orange" alt="" />
-        </button>
-        <button className={classes["option-btn"]} onClick={onClickFruitsButtonHandler}>
-          <img src={Apple} id="apple" alt="" />
-        </button>
-        <button className={classes["option-btn"]} onClick={onClickFruitsButtonHandler}>
-          <img src={Strawberry} id="strawberry" alt="" />
-        </button>
-        <button className={classes["option-btn"]} onClick={onClickFruitsButtonHandler}>
-          <img src={Kiwi} id="kiwi" alt="" />
-        </button>
-        <button className={classes["option-btn"]} onClick={onClickFruitsButtonHandler}>
-          <img src={Banana} id="banana" alt="" />
-        </button>
-        <button className={classes["option-btn"]} onClick={onClickFruitsButtonHandler}>
-          <img src={Watermelon} id="watermelon" alt="" />
-        </button>
-      </div>
+			<div className={classes['ingredients']}>
+				<button
+					className={classes['option-btn']}
+					onClick={onClickIngreButtonHandler}
+				>
+					<img src={Chocolate} id='chocolate' alt='' />
+				</button>
+				<button
+					id='caffeine'
+					className={classes['option-btn']}
+					onClick={onClickIngreButtonHandler}
+				>
+					<img src={Caffein} id='caffeine' alt='' />
+				</button>
+				<button
+					id='milk'
+					className={classes['option-btn']}
+					onClick={onClickIngreButtonHandler}
+				>
+					<img src={Milk} id='milk' alt='' />
+				</button>
+			</div>
 
-      <div className={classes["taste-header"]}>
-        <div>재료</div>
-        <div>
-          <span style={{ color: "#006DF0" }}>선호하는 맛</span>을 선택해주세요
-        </div>
-      </div>
+			<div className={classes['fruits-header']}>
+				<div>재료</div>
+				<div>
+					<span style={{ color: '#FF6948' }}>제외할 과일</span>를 선택해주세요
+				</div>
+			</div>
 
-      <div className={classes["taste"]}>
-        <button className={classes["option-btn"]} onClick={onClickTasteButtonHandler}>
-          <img src={Sweet} id="sweet" alt="" />
-        </button>
-        <button className={classes["option-btn"]} onClick={onClickTasteButtonHandler}>
-          <img src={Bitter} id="bitter" alt="" />
-        </button>
-        <button className={classes["option-btn"]} onClick={onClickTasteButtonHandler}>
-          <img src={Sour} id="sour" alt="" />
-        </button>
-        <button className={classes["option-btn"]} onClick={onClickTasteButtonHandler}>
-          <img src={Nuts} id="nuts" alt="" />
-        </button>
-      </div>
+			<div className={classes['fruits']}>
+				<button
+					id='peach'
+					className={classes['option-btn']}
+					onClick={onClickFruitsButtonHandler}
+				>
+					<img src={Peach} alt='' id='peach' />
+				</button>
+				<button
+					id='orange'
+					className={classes['option-btn']}
+					onClick={onClickFruitsButtonHandler}
+				>
+					<img src={Orange} alt='' id='orange' />
+				</button>
+				<button
+					id='apple'
+					className={classes['option-btn']}
+					onClick={onClickFruitsButtonHandler}
+				>
+					<img src={Apple} alt='' id='apple' />
+				</button>
+				<button
+					id='strawberry'
+					className={classes['option-btn']}
+					onClick={onClickFruitsButtonHandler}
+				>
+					<img src={Strawberry} alt='' id='strawberry' />
+				</button>
+				<button
+					id='kiwi'
+					className={classes['option-btn']}
+					onClick={onClickFruitsButtonHandler}
+				>
+					<img src={Kiwi} alt='' id='kiwi' />
+				</button>
+				<button
+					id='banana'
+					className={classes['option-btn']}
+					onClick={onClickFruitsButtonHandler}
+				>
+					<img src={Banana} alt='' id='banana' />
+				</button>
+				<button
+					id='watermelon'
+					className={classes['option-btn']}
+					onClick={onClickFruitsButtonHandler}
+				>
+					<img src={Watermelon} alt='' id='watermelon' />
+				</button>
+			</div>
 
-      <Link to={"/loading"}>
-        <button className={classes["select-btn"]}>선택완료</button>
-      </Link>
-    </div>
-  );
+			<div className={classes['taste-header']}>
+				<div>재료</div>
+				<div>
+					<span style={{ color: '#006DF0' }}>선호하는 맛</span>을 선택해주세요
+				</div>
+			</div>
+
+			<div className={classes['taste']}>
+				<button
+					className={classes['option-btn']}
+					onClick={onClickTasteButtonHandler}
+				>
+					<img src={Sweet} id='sweat' alt='' />
+				</button>
+				<button
+					className={classes['option-btn']}
+					onClick={onClickTasteButtonHandler}
+				>
+					<img src={Bitter} id='bitter' alt='' />
+				</button>
+				<button
+					className={classes['option-btn']}
+					onClick={onClickTasteButtonHandler}
+				>
+					<img src={Sour} id='sour' alt='' />
+				</button>
+				<button
+					className={classes['option-btn']}
+					onClick={onClickTasteButtonHandler}
+				>
+					<img src={Nuts} id='nuts' alt='' />
+				</button>
+			</div>
+
+			<Link to={'/menu/loading'}>
+				<button className={classes['select-btn']}>선택완료</button>
+			</Link>
+		</div>
+	);
 };
 
 export default OptionPage;

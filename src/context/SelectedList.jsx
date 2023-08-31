@@ -37,6 +37,7 @@ export const SelectedListProvider = (props) => {
 
 	const [ingredientsState, dispatchIngredientsState] = useReducer(
 		ingredientsReducer,
+		// ['chocolate', 'caffeine', 'milk']
 		[]
 	);
 
@@ -49,7 +50,15 @@ export const SelectedListProvider = (props) => {
 		}
 	};
 
-	const [fruitsState, dispatchFruitsState] = useReducer(fruitsReducer, []);
+	const [fruitsState, dispatchFruitsState] = useReducer(fruitsReducer, [
+		// 'peach',
+		// 'orange',
+		// 'apple',
+		// 'strawberry',
+		// 'kiwi',
+		// 'banana',
+		// 'watermelon',
+	]);
 
 	const tasteReducer = (state, action) => {
 		switch (action.type) {
@@ -60,7 +69,11 @@ export const SelectedListProvider = (props) => {
 		}
 	};
 
-	const [tasteState, dispatchTasteState] = useReducer(tasteReducer, []);
+	const [tasteState, dispatchTasteState] = useReducer(tasteReducer, [
+		// 'bitter',
+		// 'sweat',
+		// 'sour',
+	]);
 
 	return (
 		<SelectedList.Provider

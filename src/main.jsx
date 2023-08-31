@@ -14,6 +14,8 @@ import LoadingPage from './pages/LoadingPage.jsx';
 
 // styles
 import './index.css';
+import RootMenu from './pages/RootMenu.jsx';
+import SelectedMenuPage from './pages/SelectedMenuPage.jsx';
 
 const router = createBrowserRouter([
 	{
@@ -45,8 +47,18 @@ const router = createBrowserRouter([
 				element: <OptionPage />,
 			},
 			{
-				path: '/loading',
-				element: <LoadingPage />,
+				path: '/menu',
+				element: <RootMenu />,
+				children: [
+					{
+						path: 'loading',
+						element: <LoadingPage />,
+					},
+					{
+						path: 'selected-menu',
+						element: <SelectedMenuPage />,
+					},
+				],
 			},
 		],
 	},

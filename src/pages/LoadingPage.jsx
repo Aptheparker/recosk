@@ -6,29 +6,73 @@ import Button from '../assets/images/temperature_button.png';
 
 //firebase
 import { db } from '../services/firebase.config';
-import { collection, query, where, getDocs } from 'firebase/firestore';
-import { useContext, useEffect, useState } from 'react';
+import { collection, query, where, getDocs, or, and } from 'firebase/firestore';
+import { useCallback, useContext, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+//context
 import { SelectedList } from '../context/SelectedList';
+import { SelectedMenu } from '../context/SelectedMenu';
 
 const LoadingPage = () => {
-
 	const [menus, setMenus] = useState([]);
+	const [allMenus, setAllMenus] = useState([]);
+	const [isLoaded, setIsLoaded] = useState(false);
+
+	//context api
 	const selectionContext = useContext(SelectedList);
 	const category = selectionContext.category;
+	const temp = selectionContext.temperature;
 	const ingredients = selectionContext.ingredients;
+	const taste = selectionContext.taste;
 	const fruits = selectionContext.fruits;
+
+	//context
+	const selectedMenuContext = useContext(SelectedMenu);
+	const selectedMenu = selectedMenuContext.menus;
+
+	const setSelectedMenu = useCallback(
+		(data) => {
+			selectedMenuContext.setMenus(data);
+		},
+		[selectedMenuContext]
+	);
+
+	//firebase
+	const dataRef = collection(db, 'menus');
+
+	//router
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		console.log(category);
 		console.log(ingredients);
 		console.log(fruits);
-		const dataRef = collection(db, 'menus');
+		console.log(taste);
+		console.log(temp);
 		const queryData = query(
 			dataRef,
-			where('category', '==', category),
-			where('ingredients', 'not in', ingredients),
-			where('fruits', 'not in', fruits)
+			and(
+				where('category', '==', category),
+				where('temperature', '==', temp),
+				or(
+					where('ingredients', 'array-contains-any', ingredients),
+					where('fruits', 'array-contains-any', fruits),
+					where('taste', 'array-contains-any', taste)
+				)
+			)
 		);
+
+		const selectAllQuery = query(
+			dataRef,
+			and(where('category', '==', category), where('temperature', '==', temp))
+		);
+
+		const getAllMenus = async () => {
+			const snapshot = await getDocs(selectAllQuery);
+			const data = snapshot.docs.map((doc) => doc.data());
+			setAllMenus(data);
+		};
 
 		const getMenus = async () => {
 			const snapshot = await getDocs(queryData);
@@ -36,25 +80,40 @@ const LoadingPage = () => {
 			setMenus(data);
 		};
 		getMenus();
+		getAllMenus();
 	}, []);
 
-	console.log(menus);
+	useEffect(() => {
+		const menusName = menus.map((item) => {
+			return item.name;
+		});
+		console.log(menusName);
+		const filtering = allMenus.filter((item) => {
+			return !menusName.includes(item.name);
+		});
+
+		setSelectedMenu(filtering);
+		setIsLoaded(true);
+	}, [menus, allMenus, setSelectedMenu]);
+
+	console.log(selectedMenu);
+
+	if (isLoaded) {
+		navigate('../selected-menu');
+	}
+
 	return (
 		<div className={classes['page-container']}>
 			<div className={classes['title']}>Recosk</div>
 			{/* temp image */}
 			<img src={Button} alt='' />
 			<div className={classes['description']}>
-				추천드릴 메뉴를 찾고 있습니다. 잠시만 기다려주세요.
+				추천드릴 메뉴를 찾고 있습니다.
+				<br />
+				잠시만 기다려주세요.
 			</div>
 		</div>
 	);
 };
-
-// const loader = () => {
-//   const category = selectionContext.category;
-//   const dataRef = collection(db, "menus");
-//   const queryData = query(dataRef, where("category", "==", ));
-// }
 
 export default LoadingPage;
