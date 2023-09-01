@@ -21,15 +21,10 @@ const SelectedMenuPage = () => {
 		navigate('/finish');
 	};
 
-<<<<<<< Updated upstream
   const onClickMoreHandler = (e) => {
     navigate("../more")
   };
-=======
-	const onClickMoreHandler = (e) => {
-		navigate('/more');
-	};
->>>>>>> Stashed changes
+
 
 	return (
 		<div className={classes['page-container']}>
