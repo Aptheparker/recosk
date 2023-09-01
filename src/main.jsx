@@ -60,16 +60,16 @@ const router = createBrowserRouter([
 						path: 'selected-menu',
 						element: <SelectedMenuPage />,
 					},
+					{
+						path: 'more',
+						element: <MorePage />,
+					}
 				],
 			},
 			{
 				path: '/finish',
 				element: <FinishPage />,
 			},
-			{
-				path: '/more',
-				element: <MorePage />,
-			}
 		],
 	},
 ]);

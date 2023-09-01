@@ -18,7 +18,7 @@ const SelectedMenuPage = () => {
   };
 
   const onClickMoreHandler = (e) => {
-    navigate("/more")
+    navigate("../more")
   };
 
   return (
