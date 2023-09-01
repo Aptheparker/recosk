@@ -25,7 +25,6 @@ const SelectedMenuPage = () => {
     navigate("../more")
   };
 
-
 	return (
 		<div className={classes['page-container']}>
 			<Header />

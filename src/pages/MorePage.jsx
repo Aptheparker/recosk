@@ -25,7 +25,9 @@ const MorePage = () => {
 
   const [contraint, setContraint] = useState("");
 
-  const onClickButtonHandler = (e, id) => {
+  const sendMessage = async (e, id) => {
+    e.preventDefault(); // Prevents the default form submission behavior
+
     switch (id) {
       case "1":
         setContraint("1");
@@ -45,29 +47,25 @@ const MorePage = () => {
       default:
         break;
     }
-    sendMessage(e);
-  };
-
-  const sendMessage = async (e) => {
-    e.preventDefault(); // Prevents the default form submission behavior
 
     const apiUrl = "https://api.openai.com/v1/chat/completions";
-    const apiKey = "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";
-    console.log(menus)
+    // const apiKey = import.meta.env.OPENAI_API_KEY;
+    const apiKey = import.meta.env.VITE_OPENAI_API_KEY;
+    console.log(menus);
 
     const requestBody = {
       model: "gpt-3.5-turbo",
       messages: [
         {
           role: "system",
-          content: "I can explain about your identity.",
+          content: "메뉴를 조건에 맞춰줘.",
         },
         {
           role: "user",
           content:
-
-            menus + " 이 메뉴들 중에서 다음 조건에 해당하는 메뉴 하나만 추천해줘: " + "맛 있는거"
-            // contraint,
+            "[아이스아메리카노, 초콜릿 라떼]"+
+            " 이 메뉴들 중에서 다음 조건에 해당하는 메뉴 하나만 추천해줘: " +
+            "먹기 편한 메뉴",
         },
       ],
     };
@@ -83,11 +81,15 @@ const MorePage = () => {
       });
 
       const responseData = await response.json();
-      console.log(
-        "API response data:",
-        responseData.choices[0].message.content
-      );
-      setResponseText(responseData.choices[0].message.content);
+
+      if (responseData.choices && responseData.choices.length > 0) {
+        console.log(
+          "API response data:",
+          responseData.choices[0].message.content
+        );
+      } else {
+        console.log("No response data or choices array is empty.");
+      }
     } catch (error) {
       console.log(error);
     }
@@ -99,18 +101,10 @@ const MorePage = () => {
       <img src={MoreDescription} alt="more-description" />
 
       <div className={classes["buttons"]}>
-        <button
-          className={classes["more-btn"]}
-          id="1"
-          onClick={onClickButtonHandler}
-        >
+        <button className={classes["more-btn"]} id="1" onClick={sendMessage}>
           <img src={MoreButton1} alt="more-button-1" />
         </button>
-        <button
-          className={classes["more-btn"]}
-          id="2"
-          onClick={onClickButtonHandler}
-        >
+        <button className={classes["more-btn"]} id="2" onClick={sendMessage}>
           <img src={MoreButton2} alt="more-button-2" />
         </button>
         <button className={classes["more-btn"]} id="3">

@@ -71,32 +71,48 @@ const LoadingPage = () => {
 			and(where('category', '==', category), where('temperature', '==', temp))
 		);
 
-		const getAllMenus = async () => {
-			const snapshot = await getDocs(selectAllQuery);
-			const data = snapshot.docs.map((doc) => doc.data());
-			setAllMenus(data);
-		};
+		// const getAllMenus = async () => {
+		// 	const snapshot = await getDocs(selectAllQuery);
+		// 	const data = snapshot.docs.map((doc) => doc.data());
+		// 	return data;
+		// };
 
 		const getMenus = async () => {
 			const snapshot = await getDocs(queryData);
-			const data = snapshot.docs.map((doc) => doc.data());
-			setMenus(data);
+			const selectedData = snapshot.docs.map((doc) => doc.data());
+			const allSnapshot = await getDocs(selectAllQuery);
+			const allData = allSnapshot.docs.map((doc) => doc.data());
+			return { selectedData, allData };
 		};
-		getMenus();
-		getAllMenus();
-	}, []);
 
-	useEffect(() => {
-		const menusName = menus.map((item) => {
-			return item.name;
-		});
-		console.log(menusName);
-		const filtering = allMenus.filter((item) => {
-			return !menusName.includes(item.name);
-		});
+		if (menus.length === 0 && allMenus.length === 0) {
+			getMenus().then((data) => {
+				setAllMenus(data.allData);
+				setMenus(data.selectedData);
+			});
+		} else if (menus.length !== 0 || allMenus.length !== 0) {
+			console.log(1);
+			const menusName = menus.map((item) => {
+				return item.name;
+			});
+			console.log(menusName);
+			const filtering = allMenus.filter((item) => {
+				return !menusName.includes(item.name);
+			});
 
-		setSelectedMenu(filtering);
-	}, [menus, allMenus]);
+			setSelectedMenu(filtering);
+		}
+	}, [
+		menus,
+		allMenus,
+		category,
+		dataRef,
+		setSelectedMenu,
+		temp,
+		taste,
+		fruits,
+		ingredients,
+	]);
 
 	if (selectedMenu.length !== 0) {
 		navigate('../selected-menu');
