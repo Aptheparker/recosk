@@ -96,12 +96,9 @@ const LoadingPage = () => {
 		});
 
 		setSelectedMenu(filtering);
-		setIsLoaded(true);
-	}, [menus, allMenus, setSelectedMenu]);
+	}, [menus, allMenus]);
 
-	console.log(selectedMenu);
-
-	if (isLoaded) {
+	if (selectedMenu.length !== 0) {
 		navigate('../selected-menu');
 	}
 

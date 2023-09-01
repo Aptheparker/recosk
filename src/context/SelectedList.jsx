@@ -38,7 +38,7 @@ export const SelectedListProvider = (props) => {
 	const [ingredientsState, dispatchIngredientsState] = useReducer(
 		ingredientsReducer,
 		// ['chocolate', 'caffeine', 'milk']
-		[]
+		['none']
 	);
 
 	const fruitsReducer = (state, action) => {
@@ -58,6 +58,7 @@ export const SelectedListProvider = (props) => {
 		// 'kiwi',
 		// 'banana',
 		// 'watermelon',
+		'none',
 	]);
 
 	const tasteReducer = (state, action) => {
@@ -73,6 +74,7 @@ export const SelectedListProvider = (props) => {
 		// 'bitter',
 		// 'sweat',
 		// 'sour',
+		'none',
 	]);
 
 	return (
