@@ -1,7 +1,19 @@
+// css
+import classes from './MorePage.module.css';
+
+// components
+import Header from '../components/Layout/Header';
+
+//images
+import MoreDescription from '../assets/descriptions/more_description.png';
+
+
 const MorePage = () => {
   return (
-    <div>
-      <h1>MorePage</h1>
+    <div className={classes['page-container']}>
+      <Header />
+      <img src={MoreDescription} alt="more-description" />
+      <div></div>
     </div>
   );
 }
