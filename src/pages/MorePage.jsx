@@ -1,5 +1,5 @@
 // hooks
-import { useState, useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 
 // context
 import { SelectedMenu } from "../context/SelectedMenu";
@@ -23,35 +23,37 @@ const MorePage = () => {
   const selectedMenu = useContext(SelectedMenu);
   const menus = selectedMenu.menus;
 
-  const [contraint, setContraint] = useState("");
-
-  const sendMessage = async (e, id) => {
+  const sendMessage = async (e) => {
     e.preventDefault(); // Prevents the default form submission behavior
 
-    switch (id) {
+    const buttonId = e.currentTarget.id;
+
+    let constraint = "";
+
+    switch (buttonId) {
       case "1":
-        setContraint("1");
+        constraint = "가장 덜 단 메뉴";
         break;
       case "2":
-        setContraint("2");
+        constraint = "가장 인기있는 메뉴";
         break;
       case "3":
-        setContraint("3");
+        constraint = "제일 빨리 나오는 메뉴";
         break;
       case "4":
-        setContraint("4");
+        constraint = "먹기 편한 메뉴";
         break;
       case "5":
-        setContraint("5");
+        constraint = "아무거나"
         break;
       default:
         break;
     }
 
+    console.log(constraint);
+
     const apiUrl = "https://api.openai.com/v1/chat/completions";
-    // const apiKey = import.meta.env.OPENAI_API_KEY;
     const apiKey = import.meta.env.VITE_OPENAI_API_KEY;
-    console.log(menus);
 
     const requestBody = {
       model: "gpt-3.5-turbo",
@@ -67,7 +69,7 @@ const MorePage = () => {
               return item.name;
             })+
             " 이 메뉴들 중에서 다음 조건에 해당하는 메뉴 하나만 추천해주고 추천한 이유를 알려줘: " +
-            "가장 덜 단 음료",
+            constraint,
         },
       ],
     };
@@ -97,6 +99,7 @@ const MorePage = () => {
     }
   };
 
+
   return (
     <div className={classes["page-container"]}>
       <Header />
@@ -109,13 +112,13 @@ const MorePage = () => {
         <button className={classes["more-btn"]} id="2" onClick={sendMessage}>
           <img src={MoreButton2} alt="more-button-2" />
         </button>
-        <button className={classes["more-btn"]} id="3">
+        <button className={classes["more-btn"]} id="3" onClick={sendMessage}>
           <img src={MoreButton3} alt="more-button-3" />
         </button>
-        <button className={classes["more-btn"]} id="4">
+        <button className={classes["more-btn"]} id="4" onClick={sendMessage}>
           <img src={MoreButton4} alt="more-button-4" />
         </button>
-        <button className={classes["more-btn"]} id="5">
+        <button className={classes["more-btn"]} id="5" onClick={sendMessage}>
           <img src={MoreButton5} alt="more-button-5" />
         </button>
       </div>

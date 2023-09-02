@@ -1,9 +1,38 @@
+/* Add the following CSS for the circle animation */
+@keyframes circleAnimation {
+  0% {
+    width: 50px;
+    height: 50px;
+    border-width: 5px;
+  }
+  50% {
+    width: 60px;
+    height: 60px;
+    border-width: 8px;
+  }
+  100% {
+    width: 70px;
+    height: 70px;
+    border-width: 10px;
+  }
+}
+
+/* Apply the animation to the .circle class */
+.circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #F2F2F2;
+  animation: circleAnimation 2s alternate infinite;
+}
+
+/* Rest of your CSS remains the same */
 .page-container {
   width: 100vw;
   height: 100vh;
 }
 
-.page-background{
+.page-background {
   background-image: url("../assets/backgrounds/start_background.svg");
   background-repeat: no-repeat;
   background-size: contain;
@@ -16,11 +45,11 @@
   justify-content: center;
 }
 
-.start-btn{
+.start-btn {
   margin: 75% 0 0 0;
 }
 
-.finger-img{
+.finger-img {
   margin: -10% 0 0 10%;
   pointer-events: none;
 }
