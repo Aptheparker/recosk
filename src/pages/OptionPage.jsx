@@ -12,10 +12,12 @@ import Header from "../components/Layout/Header";
 import SelectButton from "../components/Common/SelectButton";
 
 // images
-import OptionDescription from '../assets/descriptions/option_description.png';
+import OptionDescription from "../assets/descriptions/option_description.png";
+
 import Chocolate from "../assets/ingredients/chocolate.png";
 import Caffein from "../assets/ingredients/caffeine.png";
 import Milk from "../assets/ingredients/milk.png";
+
 import Peach from "../assets/fruits/peach.png";
 import Orange from "../assets/fruits/orange.png";
 import Apple from "../assets/fruits/apple.png";
@@ -23,10 +25,28 @@ import Strawberry from "../assets/fruits/strawberry.png";
 import Kiwi from "../assets/fruits/kiwi.png";
 import Banana from "../assets/fruits/banana.png";
 import Watermelon from "../assets/fruits/watermelon.png";
+
 import Sweet from "../assets/taste/sweet.png";
 import Bitter from "../assets/taste/bitter.png";
 import Sour from "../assets/taste/sour.png";
 import Nuts from "../assets/taste/nuts.png";
+
+import SelectedChocolate from "../assets/ingredients/selected_chocolate.png";
+import SelectedCaffeine from "../assets/ingredients/selected_caffeine.png";
+import SelectedMilk from "../assets/ingredients/selected_milk.png";
+
+import SelectedPeach from "../assets/fruits/selected_peach.png";
+import SelectedOrange from "../assets/fruits/selected_orange.png";
+import SelectedApple from "../assets/fruits/selected_apple.png";
+import SelectedStrawberry from "../assets/fruits/selected_strawberry.png";
+import SelectedKiwi from "../assets/fruits/selected_kiwi.png";
+import SelectedBanana from "../assets/fruits/selected_banana.png";
+import SelectedWatermelon from "../assets/fruits/selected_watermelon.png";
+
+import SelectedSweet from "../assets/taste/selected_sweet.png";
+import SelectedBitter from "../assets/taste/selected_bitter.png";
+import SelectedSour from "../assets/taste/selected_sour.png";
+import SelectedNuts from "../assets/taste/selected_nuts.png";
 
 const OptionPage = () => {
   const selectionContext = useContext(SelectedList);
@@ -84,7 +104,7 @@ const OptionPage = () => {
   return (
     <div className={classes["page-container"]}>
       <Header />
-			<img src={OptionDescription} alt="option-description" />
+      <img src={OptionDescription} alt="option-description" />
       <div className={classes["ingredients-header"]}>
         <div>재료</div>
         <div>
@@ -95,23 +115,38 @@ const OptionPage = () => {
       <div className={classes["ingredients"]}>
         <button
           className={classes["option-btn"]}
+          id="chocolate"
           onClick={onClickIngreButtonHandler}
         >
-          <img src={Chocolate} id="chocolate" alt="" />
+          <img
+            src={
+              ingredients.includes("chocolate") ? SelectedChocolate : Chocolate
+            }
+            id="chocolate"
+            alt="chocolate-image"
+          />
         </button>
         <button
           id="caffeine"
           className={classes["option-btn"]}
           onClick={onClickIngreButtonHandler}
         >
-          <img src={Caffein} id="caffeine" alt="" />
+          <img
+            src={ingredients.includes("caffeine") ? SelectedCaffeine : Caffein}
+            id="caffeine"
+            alt="caffeine-image"
+          />
         </button>
         <button
-          id="milk"
           className={classes["option-btn"]}
+          id="milk"
           onClick={onClickIngreButtonHandler}
         >
-          <img src={Milk} id="milk" alt="" />
+          <img
+            src={ingredients.includes("milk") ? SelectedMilk : Milk}
+            id="milk"
+            alt="milk-image"
+          />
         </button>
       </div>
 
@@ -124,53 +159,85 @@ const OptionPage = () => {
 
       <div className={classes["fruits"]}>
         <button
+          className={classes["option-btn"]}
           id="peach"
-          className={classes["option-btn"]}
           onClick={onClickFruitsButtonHandler}
         >
-          <img src={Peach} alt="" id="peach" />
+          <img
+            src={fruits.includes("peach") ? SelectedPeach : Peach}
+            id="peach"
+            alt="peach-image"
+          />
         </button>
         <button
+          className={classes["option-btn"]}
           id="orange"
-          className={classes["option-btn"]}
           onClick={onClickFruitsButtonHandler}
         >
-          <img src={Orange} alt="" id="orange" />
+          <img
+            src={fruits.includes("orange") ? SelectedOrange : Orange}
+            id="orange"
+            alt="orange-image"
+          />
         </button>
         <button
+          className={classes["option-btn"]}
           id="apple"
-          className={classes["option-btn"]}
           onClick={onClickFruitsButtonHandler}
         >
-          <img src={Apple} alt="" id="apple" />
+          <img
+            src={fruits.includes("apple") ? SelectedApple : Apple}
+            id="apple"
+            alt="apple-image"
+          />
         </button>
         <button
+          className={classes["option-btn"]}
           id="strawberry"
-          className={classes["option-btn"]}
           onClick={onClickFruitsButtonHandler}
         >
-          <img src={Strawberry} alt="" id="strawberry" />
+          <img
+            src={
+              fruits.includes("strawberry") ? SelectedStrawberry : Strawberry
+            }
+            id="strawberry"
+            alt="strawberry-image"
+          />
         </button>
         <button
+          className={classes["option-btn"]}
           id="kiwi"
-          className={classes["option-btn"]}
           onClick={onClickFruitsButtonHandler}
         >
-          <img src={Kiwi} alt="" id="kiwi" />
+          <img
+            src={fruits.includes("kiwi") ? SelectedKiwi : Kiwi}
+            id="kiwi"
+            alt="kiwi-image"
+          />
         </button>
         <button
+          className={classes["option-btn"]}
           id="banana"
-          className={classes["option-btn"]}
           onClick={onClickFruitsButtonHandler}
         >
-          <img src={Banana} alt="" id="banana" />
+          <img
+            src={fruits.includes("banana") ? SelectedBanana : Banana}
+            id="banana"
+            alt="banana-image"
+          />
         </button>
         <button
-          id="watermelon"
           className={classes["option-btn"]}
+          id="watermelon"
           onClick={onClickFruitsButtonHandler}
         >
-          <img src={Watermelon} alt="" id="watermelon" />
+          <img
+            src={
+              fruits.includes("watermelon") ? SelectedWatermelon : Watermelon
+            }
+            id="watermelon"
+            alt="watermelon-image"
+          />
         </button>
       </div>
 
@@ -184,27 +251,47 @@ const OptionPage = () => {
       <div className={classes["taste"]}>
         <button
           className={classes["option-btn"]}
+          id="sweet"
           onClick={onClickTasteButtonHandler}
         >
-          <img src={Sweet} id="sweat" alt="" />
+          <img
+            src={taste.includes("sweet") ? SelectedSweet : Sweet}
+            id="sweet"
+            alt="sweet-image"
+          />
         </button>
         <button
           className={classes["option-btn"]}
+          id="bitter"
           onClick={onClickTasteButtonHandler}
         >
-          <img src={Bitter} id="bitter" alt="" />
+          <img
+            src={taste.includes("bitter") ? SelectedBitter : Bitter}
+            id="bitter"
+            alt="bitter-image"
+          />
         </button>
         <button
           className={classes["option-btn"]}
+          id="sour"
           onClick={onClickTasteButtonHandler}
         >
-          <img src={Sour} id="sour" alt="" />
+          <img
+            src={taste.includes("sour") ? SelectedSour : Sour}
+            id="sour"
+            alt="sour-image"
+          />
         </button>
         <button
           className={classes["option-btn"]}
+          id="nuts"
           onClick={onClickTasteButtonHandler}
         >
-          <img src={Nuts} id="nuts" alt="" />
+          <img
+            src={taste.includes("nuts") ? SelectedNuts : Nuts}
+            id="nuts"
+            alt="nuts-image"
+          />
         </button>
       </div>
 

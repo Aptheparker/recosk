@@ -1,0 +1,38 @@
+.menu-box{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #E3E4FE;
+  border-radius: 1rem;
+  box-shadow: 0 0 1rem rgba(0,0,0,0.2);
+}
+
+.selected{
+  background-color: #9194CE;
+  color: white;
+}
+
+.menu-img{
+  width: 100%;
+  height: 50%;
+  border-radius: 1rem;
+}
+
+.menu-img img{
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+  object-fit: contain;
+}
+
+.menu-name{
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.menu-price{
+  font-size: 1.5rem;
+  font-weight: 600;
+}

@@ -1,9 +1,20 @@
+.circle {
+  background: white;
+  border-radius: 50%;
+  margin: 10px;
+  width: 50px;
+  height: 50px;
+  animation: borderPulse 1000ms infinite ease-out;
+}
+
+
+/* Rest of your CSS remains the same */
 .page-container {
   width: 100vw;
   height: 100vh;
 }
 
-.page-background{
+.page-background {
   background-image: url("../assets/backgrounds/start_background.svg");
   background-repeat: no-repeat;
   background-size: contain;
@@ -16,11 +27,11 @@
   justify-content: center;
 }
 
-.start-btn{
+.start-btn {
   margin: 75% 0 0 0;
 }
 
-.finger-img{
+.finger-img {
   margin: -10% 0 0 10%;
   pointer-events: none;
 }

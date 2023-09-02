@@ -13,8 +13,7 @@ const NormalPage = () => {
         <p className={classes["header-text"]}>Recosk</p>
       </div>
       <SelectionBar></SelectionBar>
-      <MenuContainer></MenuContainer>
-      
+      <MenuContainer></MenuContainer>     
     </div>
   );
 }
