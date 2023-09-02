@@ -1,15 +1,12 @@
-import { Outlet } from "react-router-dom";
-import { SelectedListProvider } from "../context/SelectedList";
+import { Outlet } from 'react-router-dom';
+import { SelectedListProvider } from '../context/SelectedList';
 
 function RootLayout() {
-
-
-  
-  return (
-    <SelectedListProvider>
-      <Outlet />
-    </SelectedListProvider>
-  );
+	return (
+		<SelectedListProvider>
+			<Outlet />
+		</SelectedListProvider>
+	);
 }
 
 export default RootLayout;

@@ -19,6 +19,8 @@ import MorePage from './pages/MorePage.jsx';
 // styles
 import './index.css';
 
+//context
+
 const router = createBrowserRouter([
 	{
 		path: '/',
@@ -63,7 +65,7 @@ const router = createBrowserRouter([
 					{
 						path: 'more',
 						element: <MorePage />,
-					}
+					},
 				],
 			},
 			{

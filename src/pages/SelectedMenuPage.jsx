@@ -1,6 +1,6 @@
 // hooks
 import { useNavigate } from 'react-router-dom';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 // components
 import Header from '../components/Layout/Header';
@@ -11,27 +11,50 @@ import SelectButton from '../components/Common/SelectButton';
 import classes from './SelectedMenuPage.module.css';
 import { SelectedMenu } from '../context/SelectedMenu';
 
+//firebase
+import { storage } from '../services/firebase.config';
+import { getDownloadURL, ref } from 'firebase/storage';
+
 const SelectedMenuPage = () => {
 	const navigate = useNavigate();
 	const selectedMenuContext = useContext(SelectedMenu);
+	const [menusUrl, setMenusUrl] = useState([1, 2]);
 
-	const selectedMenu = selectedMenuContext.menus;
+	useEffect(() => {
+		const menusName = selectedMenuContext.menus.map((item) => item.name);
+
+		const fetchMenus = async () => {
+			const menus = await Promise.all(
+				menusName.map(async (item) => {
+					const imageRef = ref(storage, 'image/menu-' + item + '.png');
+					const url = getDownloadURL(imageRef);
+					return url;
+				})
+			);
+			return menus;
+		};
+
+		fetchMenus().then((menus) => {
+			setMenusUrl(menus);
+		});
+	}, [selectedMenuContext]);
+	console.log(selectedMenuContext);
 
 	const onClickFinishHandler = (e) => {
 		navigate('/finish');
 	};
 
-  const onClickMoreHandler = (e) => {
-    navigate("../more")
-  };
+	const onClickMoreHandler = (e) => {
+		navigate('../more');
+	};
 
 	return (
 		<div className={classes['page-container']}>
 			<Header />
 			<img src={SelectedDescription} alt='selected-description' />
 			<div className={classes['menu-container']}>
-				{selectedMenu.map((item, index) => {
-					return <p key={index}>{item.name}</p>;
+				{menusUrl.map((item, index) => {
+					return <img alt='images' key={index} src={item}></img>;
 				})}
 			</div>
 			<div className={classes['choices']}>
