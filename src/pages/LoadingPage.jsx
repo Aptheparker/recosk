@@ -6,7 +6,7 @@ import Loading from '../assets/images/loading.svg';
 //firebase
 import { db } from '../services/firebase.config';
 import { collection, query, where, getDocs, or, and } from 'firebase/firestore';
-import { useCallback, useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 //context
@@ -18,7 +18,6 @@ import Header from '../components/Layout/Header';
 
 const LoadingPage = () => {
 	const [menus, setMenus] = useState([]);
-	const [allMenus, setAllMenus] = useState([]);
 	// const [isLoaded, setIsLoaded] = useState(false);
 
 	//context api
