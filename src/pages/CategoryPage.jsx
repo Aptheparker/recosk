@@ -57,7 +57,8 @@ const CategoryPage = () => {
     ) {
       navigate("/temperature");
     } else {
-      navigate("/option");
+      // navigate("/option");
+      alert("Coming Soon!!!!!!!!!!!!!!!!!!!!!!!")
     }
   };
 
