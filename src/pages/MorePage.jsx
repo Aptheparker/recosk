@@ -1,5 +1,6 @@
 // hooks
-import { useState, useEffect, useContext } from "react";
+import { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 
 // context
 import { SelectedMenu } from "../context/SelectedMenu";
@@ -20,7 +21,9 @@ import MoreButton4 from "../assets/moreButtons/more_button4.png";
 import MoreButton5 from "../assets/moreButtons/more_button5.png";
 
 const MorePage = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const selectedMenu = useContext(SelectedMenu);
+  const navigate = useNavigate();
   const menus = selectedMenu.menus;
 
   const sendMessage = async (e) => {
@@ -44,7 +47,7 @@ const MorePage = () => {
         constraint = "먹기 편한 메뉴";
         break;
       case "5":
-        constraint = "아무거나"
+        constraint = "아무거나";
         break;
       default:
         break;
@@ -65,14 +68,17 @@ const MorePage = () => {
         {
           role: "user",
           content:
-            menus.map((item)=>{
+            menus.map((item) => {
               return item.name;
-            })+
+            }) +
             " 이 메뉴들 중에서 다음 조건에 해당하는 메뉴 하나만 추천해주고 추천한 이유를 알려줘: " +
             constraint,
         },
       ],
     };
+
+    // Set loading state to true when sending the request
+    setIsLoading(true);
 
     try {
       const response = await fetch(apiUrl, {
@@ -96,9 +102,11 @@ const MorePage = () => {
       }
     } catch (error) {
       console.log(error);
+    } finally {
+      // Set loading state back to false when the response is received
+      setIsLoading(false);
     }
   };
-
 
   return (
     <div className={classes["page-container"]}>
@@ -122,7 +130,9 @@ const MorePage = () => {
           <img src={MoreButton5} alt="more-button-5" />
         </button>
       </div>
-      <SelectButton text={"선택완료"} />
+
+      {/* Conditionally render the loading UI */}
+      {isLoading ? <h1>Loading...</h1> : <div></div>}
     </div>
   );
 };
