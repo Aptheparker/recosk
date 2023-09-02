@@ -53,8 +53,8 @@ const SelectedMenuPage = () => {
 			<Header />
 			<img src={SelectedDescription} alt='selected-description' />
 			<div className={classes['menu-container']}>
-				{menusUrl.map((item, index) => {
-					return <MenuBox key={index} menu={item} />;
+				{selectedMenuContext.menus.map((item, index) => {
+					return <MenuBox key={index} img={menusUrl[index]} menu={item} />;
 				})}
 			</div>
 			<div className={classes['choices']}>
