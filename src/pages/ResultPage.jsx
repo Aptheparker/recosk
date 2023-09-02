@@ -58,8 +58,8 @@ const ResultPage = () => {
 	return (
 		<div className={classes['page-container']}>
 			<Header />
-			<img src={ResultDescription} alt='result-description' />
-			<MenuBox menu={resultBox} img={imageUrl}></MenuBox>
+			<img src={ResultDescription} className={classes['description']} alt='result-description' />
+			<MenuBox menu={resultBox} img={imageUrl}/>
 			<div className={classes['result-container']}>{resultMenu}</div>
 			<div className={classes['choices']}>
 				<div className={classes['choice']}>

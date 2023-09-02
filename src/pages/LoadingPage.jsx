@@ -102,6 +102,9 @@ const LoadingPage = () => {
 
 	if (selectedMenu.length !== 0) {
 		navigate('../selected-menu');
+	} else {
+		alert('조건에 맞는 메뉴가 없습니다.');
+		navigate('../../');
 	}
 
 	return (
