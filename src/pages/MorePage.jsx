@@ -3,22 +3,22 @@ import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 // context
-import { SelectedMenu } from "../context/SelectedMenu";
+import { SelectedMenu } from '../context/SelectedMenu';
 
 // css
-import classes from "./MorePage.module.css";
+import classes from './MorePage.module.css';
 
 // components
-import Header from "../components/Layout/Header";
-import SelectButton from "../components/Common/SelectButton";
+import Header from '../components/Layout/Header';
+import SelectButton from '../components/Common/SelectButton';
 
 //images
-import MoreDescription from "../assets/descriptions/more_description.png";
-import MoreButton1 from "../assets/moreButtons/more_button1.png";
-import MoreButton2 from "../assets/moreButtons/more_button2.png";
-import MoreButton3 from "../assets/moreButtons/more_button3.png";
-import MoreButton4 from "../assets/moreButtons/more_button4.png";
-import MoreButton5 from "../assets/moreButtons/more_button5.png";
+import MoreDescription from '../assets/descriptions/more_description.png';
+import MoreButton1 from '../assets/moreButtons/more_button1.png';
+import MoreButton2 from '../assets/moreButtons/more_button2.png';
+import MoreButton3 from '../assets/moreButtons/more_button3.png';
+import MoreButton4 from '../assets/moreButtons/more_button4.png';
+import MoreButton5 from '../assets/moreButtons/more_button5.png';
 
 const MorePage = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -26,12 +26,12 @@ const MorePage = () => {
   const navigate = useNavigate();
   const menus = selectedMenu.menus;
 
-  const sendMessage = async (e) => {
-    e.preventDefault(); // Prevents the default form submission behavior
+	const sendMessage = async (e) => {
+		e.preventDefault(); // Prevents the default form submission behavior
 
-    const buttonId = e.currentTarget.id;
+		const buttonId = e.currentTarget.id;
 
-    let constraint = "";
+		let constraint = '';
 
     switch (buttonId) {
       case "1":
@@ -47,16 +47,16 @@ const MorePage = () => {
         constraint = "먹기 편한 메뉴";
         break;
       case "5":
-        constraint = "아무거나";
+        constraint = "아무거나"
         break;
       default:
         break;
     }
 
-    console.log(constraint);
+		console.log(constraint);
 
-    const apiUrl = "https://api.openai.com/v1/chat/completions";
-    const apiKey = import.meta.env.VITE_OPENAI_API_KEY;
+		const apiUrl = 'https://api.openai.com/v1/chat/completions';
+		const apiKey = import.meta.env.VITE_OPENAI_API_KEY;
 
     const requestBody = {
       model: "gpt-3.5-turbo",
@@ -68,29 +68,26 @@ const MorePage = () => {
         {
           role: "user",
           content:
-            menus.map((item) => {
+            menus.map((item)=>{
               return item.name;
-            }) +
+            })+
             " 이 메뉴들 중에서 다음 조건에 해당하는 메뉴 하나만 추천해주고 추천한 이유를 알려줘: " +
             constraint,
         },
       ],
     };
 
-    // Set loading state to true when sending the request
-    setIsLoading(true);
+		try {
+			const response = await fetch(apiUrl, {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+					Authorization: `Bearer ${apiKey}`,
+				},
+				body: JSON.stringify(requestBody),
+			});
 
-    try {
-      const response = await fetch(apiUrl, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${apiKey}`,
-        },
-        body: JSON.stringify(requestBody),
-      });
-
-      const responseData = await response.json();
+			const responseData = await response.json();
 
       if (responseData.choices && responseData.choices.length > 0) {
         console.log(
@@ -102,16 +99,17 @@ const MorePage = () => {
       }
     } catch (error) {
       console.log(error);
-    } finally {
+    }finally {
       // Set loading state back to false when the response is received
       setIsLoading(false);
     }
   };
 
-  return (
-    <div className={classes["page-container"]}>
-      <Header />
-      <img src={MoreDescription} alt="more-description" />
+
+	return (
+		<div className={classes['page-container']}>
+			<Header />
+			<img src={MoreDescription} alt='more-description' />
 
       <div className={classes["buttons"]}>
         <button className={classes["more-btn"]} id="1" onClick={sendMessage}>
@@ -130,7 +128,6 @@ const MorePage = () => {
           <img src={MoreButton5} alt="more-button-5" />
         </button>
       </div>
-
       {/* Conditionally render the loading UI */}
       {isLoading ? <h1>Loading...</h1> : <div></div>}
     </div>

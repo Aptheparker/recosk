@@ -19,7 +19,7 @@ import Header from '../components/Layout/Header';
 const LoadingPage = () => {
 	const [menus, setMenus] = useState([]);
 	const [allMenus, setAllMenus] = useState([]);
-	const [isLoaded, setIsLoaded] = useState(false);
+	// const [isLoaded, setIsLoaded] = useState(false);
 
 	//context api
 	const selectionContext = useContext(SelectedList);
@@ -33,12 +33,12 @@ const LoadingPage = () => {
 	const selectedMenuContext = useContext(SelectedMenu);
 	const selectedMenu = selectedMenuContext.menus;
 
-	const setSelectedMenu = useCallback(
-		(data) => {
-			selectedMenuContext.setMenus(data);
-		},
-		[selectedMenuContext]
-	);
+	// const setSelectedMenu = useCallback(
+	// 	(data) => {
+	// 		selectedMenuContext.setMenus(data);
+	// 	},
+	// 	[selectedMenuContext]
+	// );
 
 	//firebase
 	const dataRef = collection(db, 'menus');
@@ -47,11 +47,6 @@ const LoadingPage = () => {
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		console.log(category);
-		console.log(ingredients);
-		console.log(fruits);
-		console.log(taste);
-		console.log(temp);
 		const queryData = query(
 			dataRef,
 			and(
@@ -84,33 +79,26 @@ const LoadingPage = () => {
 			return { selectedData, allData };
 		};
 
-		if (menus.length === 0 && allMenus.length === 0) {
+		if (menus.length === 0 && selectedMenuContext.menus)
 			getMenus().then((data) => {
-				setAllMenus(data.allData);
 				setMenus(data.selectedData);
+				const menuNames = data.selectedData.map((item) => {
+					return item.name;
+				});
+				const filtering = data.allData.filter((item) => {
+					return !menuNames.includes(item.name);
+				});
+				selectedMenuContext.setMenus(filtering);
 			});
-		} else if (menus.length !== 0 || allMenus.length !== 0) {
-			console.log(1);
-			const menusName = menus.map((item) => {
-				return item.name;
-			});
-			console.log(menusName);
-			const filtering = allMenus.filter((item) => {
-				return !menusName.includes(item.name);
-			});
-
-			setSelectedMenu(filtering);
-		}
 	}, [
-		menus,
-		allMenus,
 		category,
 		dataRef,
-		setSelectedMenu,
 		temp,
-		taste,
 		fruits,
 		ingredients,
+		taste,
+		selectedMenuContext,
+		menus,
 	]);
 
 	if (selectedMenu.length !== 0) {
