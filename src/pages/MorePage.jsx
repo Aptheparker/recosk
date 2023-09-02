@@ -60,7 +60,7 @@ const MorePage = () => {
 
 		const apiUrl = 'https://api.openai.com/v1/chat/completions';
 		// const apiKey = import.meta.env.VITE_OPENAI_API_KEY;
-		const apiKey = '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';
+		const apiKey = import.meta.env.VITE_OPENAI_API_KEY;
 
 		const requestBody = {
 			model: 'gpt-3.5-turbo',
