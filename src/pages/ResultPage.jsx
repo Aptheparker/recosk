@@ -21,8 +21,8 @@ const ResultPage = () => {
 
   // find name of resultMenu in menus
   for(let i = 0; i < menus.length; i++) {
-    if(resultMenu.includes(menus[i].name)) {
-      console.log(menus[i].name);
+    if(resultMenu.includes(menus[i])) {
+      console.log(menus[i]);
     }
   }
 
