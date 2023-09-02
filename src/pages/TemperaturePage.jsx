@@ -18,6 +18,7 @@ import SelectedButton from '../assets/images/selected_temperature_button.png';
 import TemperatureDescription from '../assets/descriptions/temperature_description.png';
 
 const TemperaturePage = () => {
+	const [selected, setSelected] = useState('');
 	const selectedTemperature = useContext(SelectedList);
 	const temp = selectedTemperature.temperature;
 	const navigate = useNavigate();
@@ -27,10 +28,13 @@ const TemperaturePage = () => {
 			selectedTemperature.setTemperature([]);
 		} else if (e.target.id === 'hot') {
 			selectedTemperature.setTemperature(['none', 'hot']);
+			setSelected('hot');
 		} else if (e.target.id === 'cold') {
 			selectedTemperature.setTemperature(['none', 'cold']);
+			setSelected('cold');
 		} else {
 			selectedTemperature.setTemperature(['none', 'hot', 'cold']);
+			setSelected('none');
 		}
 	};
 
@@ -57,7 +61,7 @@ const TemperaturePage = () => {
 						onClick={setTemp}
 					>
 						<img
-							src={temp === 'hot' ? SelectedButton : Button}
+							src={selected === 'hot' ? SelectedButton : Button}
 							id='hot'
 							alt='Button'
 						/>
@@ -68,7 +72,7 @@ const TemperaturePage = () => {
 						onClick={setTemp}
 					>
 						<img
-							src={temp === 'none' ? SelectedButton : Button}
+							src={selected === 'none' ? SelectedButton : Button}
 							id='none'
 							alt='Button'
 						/>
@@ -79,7 +83,7 @@ const TemperaturePage = () => {
 						onClick={setTemp}
 					>
 						<img
-							src={temp === 'cold' ? SelectedButton : Button}
+							src={selected === 'cold' ? SelectedButton : Button}
 							id='cold'
 							alt='Button'
 						/>
