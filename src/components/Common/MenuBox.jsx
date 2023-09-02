@@ -1,10 +1,19 @@
 import classes from './MenuBox.module.css';
 
+import { useState } from 'react';
+
 import Icecream from '../../assets/category/icecream.png';
 
 const MenuBox = ({ menu }) => {
+
+  const [isSelected, setIsSelected] = useState(false);
+
+  const handleMenuClick = () => {
+    setIsSelected(!isSelected);
+  };
+
   return ( 
-    <div className={classes["menu-box"]}>
+    <div className={`${classes['menu-box']} ${isSelected ? classes.selected : ''}`} onClick={handleMenuClick}>
       <div className={classes["menu-img"]}>
         <img src={Icecream} alt="menu-img" />
       </div>
