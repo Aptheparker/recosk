@@ -16,6 +16,7 @@ import SelectedMenuPage from './pages/SelectedMenuPage.jsx';
 import FinishPage from './pages/FinishPage.jsx';
 import MorePage from './pages/MorePage.jsx';
 import ResultPage from './pages/ResultPage.jsx';
+import NoPage from './pages/NoPage.jsx';
 
 // styles
 import './index.css';
@@ -58,6 +59,10 @@ const router = createBrowserRouter([
 					{
 						path: 'loading',
 						element: <LoadingPage />,
+					},
+					{
+						path: 'notfound',
+						element: <NoPage />,
 					},
 					{
 						path: 'selected-menu',

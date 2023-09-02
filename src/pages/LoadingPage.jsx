@@ -156,7 +156,7 @@ const LoadingPage = () => {
 	if (selectedMenu.length !== 0) {
 		navigate('../selected-menu');
 	} else {
-		navigate('../../category');
+		navigate('../notfound');
 	}
 
 	return (
