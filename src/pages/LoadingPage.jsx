@@ -2,8 +2,7 @@
 import classes from './LoadingPage.module.css';
 
 // images
-import Button from '../assets/images/temperature_button.png';
-
+import Loading from '../assets/images/loading.svg';
 //firebase
 import { db } from '../services/firebase.config';
 import { collection, query, where, getDocs, or, and } from 'firebase/firestore';
@@ -121,13 +120,12 @@ const LoadingPage = () => {
 	return (
 		<div className={classes['page-container']}>
 			<Header />
-			{/* temp image */}
-			<img src={Button} alt='' />
 			<div className={classes['description']}>
 				추천드릴 메뉴를 찾고 있습니다.
 				<br />
 				잠시만 기다려주세요.
 			</div>
+			<img src={Loading} className={classes['loading-img']} alt='loading-image' />
 		</div>
 	);
 };

@@ -8,7 +8,7 @@
 }
 
 .ingredients-header, .fruits-header, .taste-header {
-  width: 80%;
+  width: 70%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -31,22 +31,22 @@
   display: grid;
   grid-template-columns: 10vw 10vw 10vw 10vw;
   grid-template-rows: 10vh;
-  column-gap: 10vw;
+  column-gap: 5vw;
 }
 
 .fruits{
   display: grid;
   grid-template-columns: 10vw 10vw 10vw 10vw;
   grid-template-rows: 10vh 10vh;
-  column-gap: 10vw;
-  row-gap: 5vh;
+  column-gap: 5vw;
+  row-gap: 2vh;
 }
 
 .taste{
   display: grid;
   grid-template-columns: 10vw 10vw 10vw 10vw;
   grid-template-rows: 10vh;
-  column-gap: 10vw;
+  column-gap: 5vw;
 }
 
 .select-btn {
