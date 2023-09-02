@@ -45,21 +45,22 @@ const CategoryPage = () => {
 
 	console.log(selectedCategory);
 
-	const onClickButtonHandler = (e) => {
-		// select button clicked
-		if (selectedCategory === '') {
-			e.preventDefault();
-			alert('종류를 선택해주세요!');
-		} else if (
-			selectedCategory === 'coffee' ||
-			selectedCategory === 'tea' ||
-			selectedCategory === 'juice'
-		) {
-			navigate('/temperature');
-		} else {
-			navigate('/option');
-		}
-	};
+  const onClickButtonHandler = (e) => {
+    // select button clicked
+    if (selectedCategory === "") {
+      e.preventDefault();
+      alert("종류를 선택해주세요!");
+    } else if (
+      selectedCategory === "coffee" ||
+      selectedCategory === "tea" ||
+      selectedCategory === "juice"
+    ) {
+      navigate("/temperature");
+    } else {
+      // navigate("/option");
+      alert("Coming Soon!!!!!!!!!!!!!!!!!!!!!!!")
+    }
+  };
 
 	return (
 		<div className={classes['page-container']}>
