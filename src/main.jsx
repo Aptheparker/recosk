@@ -15,6 +15,7 @@ import RootMenu from './pages/RootMenu.jsx';
 import SelectedMenuPage from './pages/SelectedMenuPage.jsx';
 import FinishPage from './pages/FinishPage.jsx';
 import MorePage from './pages/MorePage.jsx';
+import ResultPage from './pages/ResultPage.jsx';
 
 // styles
 import './index.css';
@@ -66,6 +67,10 @@ const router = createBrowserRouter([
 						path: 'more',
 						element: <MorePage />,
 					},
+					{
+						path: 'result',
+						element: <ResultPage />,
+					}
 				],
 			},
 			{

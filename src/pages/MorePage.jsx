@@ -10,7 +10,6 @@ import classes from './MorePage.module.css';
 
 // components
 import Header from '../components/Layout/Header';
-import SelectButton from '../components/Common/SelectButton';
 
 //images
 import MoreDescription from '../assets/descriptions/more_description.png';
@@ -25,9 +24,12 @@ const MorePage = () => {
   const selectedMenu = useContext(SelectedMenu);
   const navigate = useNavigate();
   const menus = selectedMenu.menus;
+  const setResultMenu = selectedMenu.setResultMenu;
 
 	const sendMessage = async (e) => {
 		e.preventDefault(); // Prevents the default form submission behavior
+
+    setIsLoading(true);
 
 		const buttonId = e.currentTarget.id;
 
@@ -90,10 +92,12 @@ const MorePage = () => {
 			const responseData = await response.json();
 
       if (responseData.choices && responseData.choices.length > 0) {
+        navigate("../result");
         console.log(
           "API response data:",
           responseData.choices[0].message.content
         );
+        setResultMenu(responseData.choices[0].message.content);
       } else {
         console.log("No response data or choices array is empty.");
       }
