@@ -67,6 +67,8 @@ export const SelectedListProvider = (props) => {
 				return state.filter((item) => item !== action.payload);
 			case 'ADD':
 				return [...state, action.payload];
+			case 'FULL':
+				return ['bitter', 'sweet', 'sour', 'nutty'];
 		}
 	};
 

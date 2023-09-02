@@ -46,6 +46,10 @@ const LoadingPage = () => {
 	const navigate = useNavigate();
 
 	useEffect(() => {
+		if (taste.length === 0) {
+			selectionContext.setTaste({ type: 'DELETE' });
+		}
+
 		const drinkQueryData = query(
 			dataRef,
 			and(
@@ -58,7 +62,7 @@ const LoadingPage = () => {
 				)
 			)
 		);
-		console.log(taste);
+
 		const dessertQueryData = query(
 			dataRef,
 			and(
@@ -75,7 +79,11 @@ const LoadingPage = () => {
 			and(
 				where('category', '==', category),
 				where('temperature', 'in', temp),
-				where('taste', 'array-contains-any', taste)
+				where(
+					'taste',
+					'array-contains-any',
+					!taste.length ? ['bitter', 'sweet', 'sour', 'nutty'] : taste
+				)
 			)
 		);
 
@@ -83,7 +91,11 @@ const LoadingPage = () => {
 			dataRef,
 			and(
 				where('category', '==', category),
-				where('taste', 'array-contains-any', taste)
+				where(
+					'taste',
+					'array-contains-any',
+					!taste.length ? ['bitter', 'sweet', 'sour', 'nutty'] : taste
+				)
 			)
 		);
 
