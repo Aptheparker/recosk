@@ -74,7 +74,6 @@ export const SelectedListProvider = (props) => {
 		// 'bitter',
 		// 'sweat',
 		// 'sour',
-		'none',
 	]);
 
 	return (
