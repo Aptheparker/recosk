@@ -1,5 +1,5 @@
 // hooks
-import { useContext } from 'react';
+import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 // css
@@ -14,6 +14,7 @@ import SelectButton from '../components/Common/SelectButton';
 
 // images
 import Button from '../assets/images/temperature_button.png';
+import SelectedButton from '../assets/images/selected_temperature_button.png';
 import TemperatureDescription from '../assets/descriptions/temperature_description.png';
 
 const TemperaturePage = () => {
@@ -50,14 +51,38 @@ const TemperaturePage = () => {
 			<img src={TemperatureDescription} alt='temperature-description' />
 			<div className={classes['temperature-container']}>
 				<div className={classes['buttons']}>
-					<button className={classes['temperature-btn']} onClick={setTemp}>
-						<img src={Button} id='hot' alt='Button' />
+					<button
+						className={classes['temperature-btn']}
+						id='hot'
+						onClick={setTemp}
+					>
+						<img
+							src={temp === 'hot' ? SelectedButton : Button}
+							id='hot'
+							alt='Button'
+						/>
 					</button>
-					<button className={classes['temperature-btn']} onClick={setTemp}>
-						<img src={Button} id='none' alt='Button' />
+					<button
+						className={classes['temperature-btn']}
+						id='none'
+						onClick={setTemp}
+					>
+						<img
+							src={temp === 'none' ? SelectedButton : Button}
+							id='none'
+							alt='Button'
+						/>
 					</button>
-					<button className={classes['temperature-btn']} onClick={setTemp}>
-						<img src={Button} id='cold' alt='Button' />
+					<button
+						className={classes['temperature-btn']}
+						id='cold'
+						onClick={setTemp}
+					>
+						<img
+							src={temp === 'cold' ? SelectedButton : Button}
+							id='cold'
+							alt='Button'
+						/>
 					</button>
 				</div>
 			</div>

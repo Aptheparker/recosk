@@ -29,7 +29,7 @@ import Watermelon from '../assets/fruits/watermelon.png';
 import Sweet from '../assets/taste/sweet.png';
 import Bitter from '../assets/taste/bitter.png';
 import Sour from '../assets/taste/sour.png';
-import Nuts from '../assets/taste/nuts.png';
+import Nutty from '../assets/taste/nutty.png';
 
 import SelectedChocolate from '../assets/ingredients/selected_chocolate.png';
 import SelectedCaffeine from '../assets/ingredients/selected_caffeine.png';
@@ -46,7 +46,7 @@ import SelectedWatermelon from '../assets/fruits/selected_watermelon.png';
 import SelectedSweet from '../assets/taste/selected_sweet.png';
 import SelectedBitter from '../assets/taste/selected_bitter.png';
 import SelectedSour from '../assets/taste/selected_sour.png';
-import SelectedNuts from '../assets/taste/selected_nuts.png';
+import SelectedNutty from '../assets/taste/selected_nutty.png';
 
 const OptionPage = () => {
 	const selectionContext = useContext(SelectedList);
@@ -280,13 +280,13 @@ const OptionPage = () => {
 				</button>
 				<button
 					className={classes['option-btn']}
-					id='nuts'
+					id='nutty'
 					onClick={onClickTasteButtonHandler}
 				>
 					<img
-						src={taste.includes('nuts') ? SelectedNuts : Nuts}
-						id='nuts'
-						alt='nuts-image'
+						src={taste.includes('nutty') ? SelectedNutty : Nutty}
+						id='nutty'
+						alt='nutty-image'
 					/>
 				</button>
 			</div>
