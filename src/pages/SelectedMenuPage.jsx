@@ -19,7 +19,7 @@ import { getDownloadURL, ref } from 'firebase/storage';
 const SelectedMenuPage = () => {
 	const navigate = useNavigate();
 	const selectedMenuContext = useContext(SelectedMenu);
-	const [menusUrl, setMenusUrl] = useState([1, 2]);
+	const [menusUrl, setMenusUrl] = useState([]);
 
 	useEffect(() => {
 		const menusName = selectedMenuContext.menus.map((item) => item.name);

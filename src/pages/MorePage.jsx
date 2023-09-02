@@ -59,7 +59,8 @@ const MorePage = () => {
 		console.log(menus);
 
 		const apiUrl = 'https://api.openai.com/v1/chat/completions';
-		const apiKey = import.meta.env.VITE_OPENAI_API_KEY;
+		// const apiKey = import.meta.env.VITE_OPENAI_API_KEY;
+		const apiKey = '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';
 
 		const requestBody = {
 			model: 'gpt-3.5-turbo',

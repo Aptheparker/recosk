@@ -51,7 +51,7 @@ const LoadingPage = () => {
 			dataRef,
 			and(
 				where('category', '==', category),
-				where('temperature', '==', temp),
+				where('temperature', 'in', temp),
 				or(
 					where('ingredients', 'array-contains-any', ingredients),
 					where('fruits', 'array-contains-any', fruits),
@@ -62,7 +62,7 @@ const LoadingPage = () => {
 
 		const selectAllQuery = query(
 			dataRef,
-			and(where('category', '==', category), where('temperature', '==', temp))
+			and(where('category', '==', category), where('temperature', 'in', temp))
 		);
 
 		// const getAllMenus = async () => {
@@ -113,7 +113,11 @@ const LoadingPage = () => {
 				<br />
 				잠시만 기다려주세요.
 			</div>
-			<img src={Loading} className={classes['loading-img']} alt='loading-image' />
+			<img
+				src={Loading}
+				className={classes['loading-img']}
+				alt='loading-image'
+			/>
 		</div>
 	);
 };
