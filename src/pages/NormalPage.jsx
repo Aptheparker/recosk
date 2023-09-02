@@ -7,15 +7,15 @@ import classes from './NormalPage.module.css';
 // }
 
 const NormalPage = () => {
-  return (
-    <div className={classes.background}>
-      <div className={classes.header}>
-        <p className={classes["header-text"]}>Recosk</p>
-      </div>
-      <SelectionBar></SelectionBar>
-      <MenuContainer></MenuContainer>     
-    </div>
-  );
-}
+	return (
+		<div className={classes.background}>
+			<div className={classes.header}>
+				<p className={classes['header-text']}>Recosk</p>
+			</div>
+			<SelectionBar></SelectionBar>
+			<MenuContainer></MenuContainer>
+		</div>
+	);
+};
 
 export default NormalPage;
