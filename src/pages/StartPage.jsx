@@ -16,8 +16,8 @@ const StartPage = () => {
     <div className={classes["page-container"]}>
       <div className={classes["page-background"]}>
         <Link to="/choose" className={classes["start-btn"]}>
-          {/* <img src={Bt} alt="start-button" /> */}
-          <div className={classes["circle"]}></div>
+          <img src={Btn1} alt="start-button" />
+          {/* <div className={classes["circle"]}></div> */}
         </Link>
         <img src={Finger} className={classes["finger-img"]} alt="" />
       </div>

@@ -70,37 +70,31 @@ const CategoryPage = () => {
 					className={getMenuClassName(Coffee)}
 					onClick={() => handleMenuClick('coffee')}
 					imageSrc={Coffee}
-					categoryName={'커피'}
 				/>
 				<CategoryBox
 					className={getMenuClassName(Tea)}
 					onClick={() => handleMenuClick('tea')}
 					imageSrc={Tea}
-					categoryName={'차'}
 				/>
 				<CategoryBox
 					className={getMenuClassName(Juice)}
 					onClick={() => handleMenuClick('juice')}
 					imageSrc={Juice}
-					categoryName={'주스'}
 				/>
 				<CategoryBox
 					className={getMenuClassName(Icecream)}
 					onClick={() => handleMenuClick('icecream')}
 					imageSrc={Icecream}
-					categoryName={'아이스크림'}
 				/>
 				<CategoryBox
 					className={getMenuClassName(Cake)}
 					onClick={() => handleMenuClick('cake')}
 					imageSrc={Cake}
-					categoryName={'케이크'}
 				/>
 				<CategoryBox
 					className={getMenuClassName(Bingsu)}
 					onClick={() => handleMenuClick('bingsu')}
 					imageSrc={Bingsu}
-					categoryName={'빙수'}
 				/>
 			</div>
 
