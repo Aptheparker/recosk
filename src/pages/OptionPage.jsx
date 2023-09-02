@@ -115,6 +115,7 @@ const OptionPage = () => {
       <div className={classes["ingredients"]}>
         <button
           className={classes["option-btn"]}
+          id="chocolate"
           onClick={onClickIngreButtonHandler}
         >
           <img
@@ -126,6 +127,7 @@ const OptionPage = () => {
           />
         </button>
         <button
+          id="caffeine"
           className={classes["option-btn"]}
           onClick={onClickIngreButtonHandler}
         >
@@ -137,6 +139,7 @@ const OptionPage = () => {
         </button>
         <button
           className={classes["option-btn"]}
+          id="milk"
           onClick={onClickIngreButtonHandler}
         >
           <img
@@ -157,6 +160,7 @@ const OptionPage = () => {
       <div className={classes["fruits"]}>
         <button
           className={classes["option-btn"]}
+          id="peach"
           onClick={onClickFruitsButtonHandler}
         >
           <img
@@ -167,6 +171,7 @@ const OptionPage = () => {
         </button>
         <button
           className={classes["option-btn"]}
+          id="orange"
           onClick={onClickFruitsButtonHandler}
         >
           <img
@@ -177,6 +182,7 @@ const OptionPage = () => {
         </button>
         <button
           className={classes["option-btn"]}
+          id="apple"
           onClick={onClickFruitsButtonHandler}
         >
           <img
@@ -187,6 +193,7 @@ const OptionPage = () => {
         </button>
         <button
           className={classes["option-btn"]}
+          id="strawberry"
           onClick={onClickFruitsButtonHandler}
         >
           <img
@@ -199,6 +206,7 @@ const OptionPage = () => {
         </button>
         <button
           className={classes["option-btn"]}
+          id="kiwi"
           onClick={onClickFruitsButtonHandler}
         >
           <img
@@ -209,6 +217,7 @@ const OptionPage = () => {
         </button>
         <button
           className={classes["option-btn"]}
+          id="banana"
           onClick={onClickFruitsButtonHandler}
         >
           <img
@@ -219,6 +228,7 @@ const OptionPage = () => {
         </button>
         <button
           className={classes["option-btn"]}
+          id="watermelon"
           onClick={onClickFruitsButtonHandler}
         >
           <img
@@ -241,6 +251,7 @@ const OptionPage = () => {
       <div className={classes["taste"]}>
         <button
           className={classes["option-btn"]}
+          id="sweet"
           onClick={onClickTasteButtonHandler}
         >
           <img
@@ -251,6 +262,7 @@ const OptionPage = () => {
         </button>
         <button
           className={classes["option-btn"]}
+          id="bitter"
           onClick={onClickTasteButtonHandler}
         >
           <img
@@ -261,6 +273,7 @@ const OptionPage = () => {
         </button>
         <button
           className={classes["option-btn"]}
+          id="sour"
           onClick={onClickTasteButtonHandler}
         >
           <img
@@ -271,6 +284,7 @@ const OptionPage = () => {
         </button>
         <button
           className={classes["option-btn"]}
+          id="nuts"
           onClick={onClickTasteButtonHandler}
         >
           <img

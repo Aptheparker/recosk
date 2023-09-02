@@ -5,6 +5,7 @@ import { useContext } from 'react';
 // components
 import Header from '../components/Layout/Header';
 import SelectedDescription from '../assets/descriptions/selected_description.png';
+import MenuBox from '../components/Common/MenuBox';
 import SelectButton from '../components/Common/SelectButton';
 
 // css
@@ -31,7 +32,7 @@ const SelectedMenuPage = () => {
 			<img src={SelectedDescription} alt='selected-description' />
 			<div className={classes['menu-container']}>
 				{selectedMenu.map((item, index) => {
-					return <p key={index}>{item.name}</p>;
+					return <MenuBox key={index} menu={item}/>;
 				})}
 			</div>
 			<div className={classes['choices']}>
