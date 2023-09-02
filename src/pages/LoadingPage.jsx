@@ -46,10 +46,6 @@ const LoadingPage = () => {
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		if (taste.length === 0) {
-			selectionContext.setTaste({ type: 'DELETE' });
-		}
-
 		const drinkQueryData = query(
 			dataRef,
 			and(
